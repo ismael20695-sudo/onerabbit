@@ -1,111 +1,241 @@
 import Image from "next/image";
-import Link from "next/link";
+import NextProject from "@/app/components/NextProject";
 import type { Metadata } from "next";
+
+import Header from "@/app/components/Header";
+import ProjectInfo from "@/app/components/ProjectInfo";
+import SharedImage from "@/app/components/animations/SharedImage";
+import ProjectReveal from "@/app/components/animations/ProjectReveal";
 
 export const metadata: Metadata = {
   title: "Body Language",
   description:
-    "Movement and portrait photography by ONERABBIT.",
+    "Movement, gesture and human expression through photography by ONERABBIT.",
+
+  openGraph: {
+    title: "Body Language — ONERABBIT",
+    description:
+      "Movement, gesture and human expression through photography.",
+
+    images: [
+      {
+        url: "/images/HECTOR_10_9_2300501.jpg",
+        width: 1200,
+        height: 1500,
+        alt: "Body Language — ONERABBIT",
+      },
+    ],
+
+    type: "website",
+  },
 };
 
 export default function BodyLanguage() {
   return (
     <main className="projectPage">
+      <Header />
 
-      <header className="projectHeader">
-        <Link href="/" className="logo">
-          ONERABBIT
-        </Link>
+      <ProjectReveal delay={0.35}>
+        <section className="projectIntro bodyIntro">
+          <span>02</span>
 
-        <nav>
-          <Link href="/#work">WORK</Link>
-          <Link href="/#about">ABOUT</Link>
-          <Link href="/#contact">CONTACT</Link>
-        </nav>
-      </header>
+          <div>
+            <p>MOVEMENT / PORTRAIT</p>
 
-      <section className="projectIntro">
-        <span>02</span>
+            <h1>
+              Body
+              <br />
+              Language
+            </h1>
+          </div>
 
-        <div>
-          <p>MOVEMENT / PORTRAIT</p>
+          <span>2026</span>
+        </section>
+      </ProjectReveal>
 
-          <h1>
-            Body
-            <br />
-            Language
-          </h1>
-        </div>
-
-        <span>2026</span>
-      </section>
-
-      <section className="projectHero">
-        <Image
+      <section className="projectHero bodyHero">
+        <SharedImage
+          layoutId="body-image"
           src="/images/HECTOR_10_9_2300501.jpg"
           alt="Body Language"
-          fill
-          priority
-          className="projectPhoto"
         />
       </section>
 
-      <section className="projectStatement">
-        <p>
-          Movement as structure.
-          Gesture as a graphic element.
-        </p>
-      </section>
+      <ProjectReveal delay={0.45}>
+        <section className="projectStatement bodyStatement">
+          <p>
+            Movement as structure.
+            <br />
+            Gesture as form.
+          </p>
+        </section>
+      </ProjectReveal>
 
-      <section className="bodySplit">
-        <div className="bodyTall">
+      <ProjectInfo
+        client="Independent"
+        category="Movement / Portrait"
+        year="2026"
+        location="Madrid / León"
+      />
+
+      <ProjectReveal delay={0.25}>
+        <section className="bodyOpeningPair">
+          <div className="bodyOpeningLarge">
+            <Image
+              src="/images/SOFI_12_09_2300142.jpg"
+              alt="Body Language"
+              fill
+              className="projectPhoto"
+              sizes="(max-width: 800px) 100vw, 58vw"
+            />
+          </div>
+
+          <div className="bodyOpeningSmall">
+            <Image
+              src="/images/HECTOR_10_9_2300059.jpg"
+              alt="Body Language"
+              fill
+              className="projectPhoto"
+              sizes="(max-width: 800px) 100vw, 34vw"
+            />
+          </div>
+        </section>
+      </ProjectReveal>
+
+      <ProjectReveal delay={0.25}>
+        <section className="bodySculpture">
+          <div className="bodySculptureFrame">
+            <Image
+              src="/images/SOFI_12_09_2300220.jpg"
+              alt="Body Language"
+              fill
+              className="projectPhoto"
+              sizes="(max-width: 800px) 100vw, 72vw"
+            />
+          </div>
+        </section>
+      </ProjectReveal>
+
+      <ProjectReveal delay={0.25}>
+        <section className="bodyVerticalPair">
+          <div className="bodyVerticalFrame bodyVerticalLeft">
+            <Image
+              src="/images/VICKY_14_05_2301945.jpg"
+              alt="Body Language"
+              fill
+              className="projectPhoto"
+              sizes="(max-width: 800px) 100vw, 42vw"
+            />
+          </div>
+
+          <div className="bodyVerticalFrame bodyVerticalRight">
+            <Image
+              src="/images/HECTOR_10_9_2300463.jpg"
+              alt="Body Language"
+              fill
+              className="projectPhoto"
+              sizes="(max-width: 800px) 100vw, 42vw"
+            />
+          </div>
+        </section>
+      </ProjectReveal>
+
+      <ProjectReveal delay={0.25}>
+        <section className="bodyFullMoment">
           <Image
-            src="/images/HECTOR_10_9_2300059.jpg"
+            src="/images/VICKY_14_05_2302008.jpg"
             alt="Body Language"
             fill
             className="projectPhoto"
+            sizes="100vw"
           />
-        </div>
+        </section>
+      </ProjectReveal>
 
-        <div className="bodySmall">
-          <Image
-            src="/images/HECTOR_10_9_2300474.jpg"
-            alt="Body Language"
-            fill
-            className="projectPhoto"
-          />
-        </div>
-      </section>
+      <ProjectReveal delay={0.25}>
+        <section className="bodyWideBreath">
+          <div className="bodyWideBreathFrame">
+            <Image
+              src="/images/SOFI_12_09_2300859.jpg"
+              alt="Body Language"
+              fill
+              className="projectPhoto"
+              sizes="(max-width: 800px) 100vw, 78vw"
+            />
+          </div>
+        </section>
+      </ProjectReveal>
 
-      <section className="projectFull">
-        <Image
-          src="/images/VICKY_14_05_2302008.jpg"
-          alt="Body Language"
-          fill
-          className="projectPhoto"
-        />
-      </section>
+      <ProjectReveal delay={0.25}>
+        <section className="bodyInversePair">
+          <div className="bodyInverseLarge">
+            <Image
+              src="/images/VICKY_14_05_2302021.jpg"
+              alt="Body Language"
+              fill
+              className="projectPhoto"
+              sizes="(max-width: 800px) 100vw, 60vw"
+            />
+          </div>
 
-      <section className="bodyFloating">
-        <div className="bodyFloatingImage">
-          <Image
-            src="/images/SARA_FUTURE_24_11_2102316_1.jpg"
-            alt="Body Language"
-            fill
-            className="projectPhoto"
-          />
-        </div>
-      </section>
+          <div className="bodyInverseSmall">
+            <Image
+              src="/images/HECTOR_10_9_2300474.jpg"
+              alt="Body Language"
+              fill
+              className="projectPhoto"
+              sizes="(max-width: 800px) 100vw, 30vw"
+            />
+          </div>
+        </section>
+      </ProjectReveal>
 
-      <section className="nextProject">
-        <span>NEXT PROJECT</span>
+      <ProjectReveal delay={0.25}>
+        <section className="bodyMotionPair">
+          <div className="bodyMotionFrame">
+            <Image
+              src="/images/VICKY_14_05_2302055.jpg"
+              alt="Body Language"
+              fill
+              className="projectPhoto"
+              sizes="(max-width: 800px) 100vw, 46vw"
+            />
+          </div>
 
-        <Link href="/projects/objects-performance">
-          Objects & Performance
-          <span>↗</span>
-        </Link>
-      </section>
+          <div className="bodyMotionFrame bodyMotionOffset">
+            <Image
+              src="/images/VICKY_14_05_2302090.jpg"
+              alt="Body Language"
+              fill
+              className="projectPhoto"
+              sizes="(max-width: 800px) 100vw, 46vw"
+            />
+          </div>
+        </section>
+      </ProjectReveal>
 
+      <ProjectReveal delay={0.3}>
+        <section className="bodyClosing">
+          <div className="bodyClosingFrame">
+            <Image
+              src="/images/VICKY_14_05_2302132.jpg"
+              alt="Body Language"
+              fill
+              className="projectPhoto"
+              sizes="(max-width: 800px) 100vw, 58vw"
+            />
+          </div>
+        </section>
+      </ProjectReveal>
+
+<NextProject
+  number="03"
+  title={"Objects\n& Performance"}
+  category="PRODUCT / STILL LIFE"
+  href="/projects/objects-performance"
+  image="/images/2_Adizero.jpg"
+  layoutId="product-image"
+/>
     </main>
   );
 }
