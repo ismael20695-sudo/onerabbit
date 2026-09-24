@@ -31,9 +31,9 @@ export const metadata: Metadata = {
 
 export default function Motorsport() {
   return (
-<main className="projectPage motorsportPage">
-    
-          <Header />
+    <main className="projectPage motorsportPage">
+
+      <Header />
 
       <ProjectReveal delay={0.35}>
         <section className="projectIntro motorsportIntro">
@@ -42,11 +42,7 @@ export default function Motorsport() {
           <div>
             <p>MOTORSPORT / RACING</p>
 
-            <h1>
-              Motor
-              <br />
-              Sport
-            </h1>
+
           </div>
 
           <span>2026</span>
@@ -79,11 +75,13 @@ export default function Motorsport() {
 
       <ProjectReveal delay={0.25}>
         <section className="motorsportDetails">
+
           <div className="motorsportDetailFrame motorsportDriver">
             <Image
               src="/images/IMG_7868.jpg"
               alt="Driver inside race car"
               fill
+              sizes="(max-width: 800px) 100vw, 50vw"
               className="projectPhoto"
             />
           </div>
@@ -93,9 +91,11 @@ export default function Motorsport() {
               src="/images/IMG_7885.jpg"
               alt="Racing tire detail"
               fill
+              sizes="(max-width: 800px) 100vw, 50vw"
               className="projectPhoto"
             />
           </div>
+
         </section>
       </ProjectReveal>
 
@@ -105,6 +105,7 @@ export default function Motorsport() {
             src="/images/IMG_7468.jpg"
             alt="Race car climbing through the forest"
             fill
+            sizes="100vw"
             className="projectPhoto"
           />
         </section>
@@ -112,11 +113,13 @@ export default function Motorsport() {
 
       <ProjectReveal delay={0.25}>
         <section className="motorsportActionPair">
+
           <div className="motorsportActionFrame">
             <Image
               src="/images/IMG_6948.jpg"
               alt="Prototype race car in motion"
               fill
+              sizes="(max-width: 800px) 100vw, 50vw"
               className="projectPhoto"
             />
           </div>
@@ -126,9 +129,11 @@ export default function Motorsport() {
               src="/images/IMG_7326.jpg"
               alt="Race car in motion"
               fill
+              sizes="(max-width: 800px) 100vw, 50vw"
               className="projectPhoto"
             />
           </div>
+
         </section>
       </ProjectReveal>
 
@@ -138,6 +143,7 @@ export default function Motorsport() {
             src="/images/IMG_7506.jpg"
             alt="Prototype race car"
             fill
+            sizes="100vw"
             className="projectPhoto"
           />
         </section>
@@ -145,25 +151,28 @@ export default function Motorsport() {
 
       <ProjectReveal delay={0.3}>
         <section className="motorsportClosing">
+
           <div className="motorsportClosingFrame">
             <Image
               src="/images/IMG_7889.jpg"
               alt="Mechanic preparing race car"
               fill
+              sizes="100vw"
               className="projectPhoto"
             />
           </div>
+
         </section>
       </ProjectReveal>
 
-<NextProject
-  number="01"
-  title={"Portrait\nStudies"}
-  category="EDITORIAL / PORTRAIT"
-  href="/projects/portrait-studies"
-  image="/images/ALBA_27_10_2301356.jpg"
-  layoutId="portrait-image"
-/>
+      <NextProject
+        number="01"
+        title={"Portrait\nStudies"}
+        category="EDITORIAL / PORTRAIT"
+        href="/projects/portrait-studies"
+        image="/images/ALBA_27_10_2301356.jpg"
+        layoutId="portrait-image"
+      />
 
     </main>
   );

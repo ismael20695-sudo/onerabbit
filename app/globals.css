@@ -131,7 +131,7 @@ height: 64px;
   z-index: 30;
 
   left: var(--space);
-  bottom: 8vh;
+  bottom: calc(8vh + 40px);
 
   max-width: 900px;
 
@@ -2439,31 +2439,10 @@ body {
 }
 
 
-.headerScrolled {
-
-  background: rgba(0,0,0,.75);
-
-  backdrop-filter: blur(12px);
-
-}
 
 
 
-.headerScrolled .logoMark {
 
-  width: 30px;
-
-}
-
-
-.logoMark {
-
-  width: 120px;
-
-  transition:
-    width .6s cubic-bezier(.22,1,.36,1);
-
-}
 
 /* =========================
    PROJECT INFO
@@ -8325,3 +8304,824 @@ left:-30px;
 .heroLogoBlock h2 {
   margin-top: 0;
 }
+
+/* =========================================================
+   ONERABBIT — HERO MOBILE FINAL
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .hero {
+    height: 100svh;
+    min-height: 100svh;
+    overflow: hidden;
+  }
+
+  .heroText {
+    left: 18px;
+    right: 18px;
+    bottom: 9vh;
+    max-width: none;
+    width: auto;
+    z-index: 30;
+  }
+
+  /* Categorías */
+  .heroText > p {
+    margin: 0 0 16px;
+    max-width: 100%;
+    font-size: 8px;
+    line-height: 1.4;
+    letter-spacing: .14em;
+  }
+
+  /* ONERABBIT */
+  .heroText h1 {
+    margin: 0;
+    max-width: 100%;
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(52px, 15vw, 82px);
+    line-height: .82;
+    letter-spacing: -.045em;
+
+    white-space: nowrap;
+  }
+
+  /* Claim */
+  .heroText h2 {
+    margin: 18px 0 0;
+    max-width: 320px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(25px, 7.2vw, 34px);
+    line-height: .96;
+    letter-spacing: -.025em;
+  }
+
+  /* Imagen */
+  .heroImage {
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+/* =========================
+   MOBILE HERO
+   ========================= */
+
+@media (max-width: 800px) {
+
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    height: 100svh;
+    overflow: hidden;
+  }
+
+  /* Imagen */
+  .hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Logo principal ONERABBIT */
+  .heroLogo {
+    position: absolute;
+    left: 20px;
+    bottom: 155px;
+    z-index: 5;
+
+    margin: 0;
+  }
+
+  .heroLogo img,
+  .heroLogo svg {
+    display: block;
+    width: 225px;
+    height: auto;
+  }
+
+  /* Texto principal */
+  .heroStatement {
+    position: absolute;
+    left: 20px;
+    bottom: 82px;
+    z-index: 5;
+
+    width: calc(100% - 40px);
+    margin: 0;
+  }
+
+  .heroStatement p {
+    margin: 0;
+
+    font-size: 30px;
+    line-height: 0.95;
+  }
+
+  /* Información inferior */
+  .heroMeta {
+    position: absolute;
+    left: 20px;
+    bottom: 28px;
+    z-index: 5;
+
+    margin: 0;
+  }
+
+  .heroMeta p {
+    margin: 0;
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  .heroLogo {
+    bottom: 175px;
+  }
+
+  .heroStatement {
+    bottom: 100px;
+  }
+
+  .heroMeta {
+    bottom: 32px;
+  }
+
+}
+
+/* =========================
+   TABLET / IPAD
+   ========================= */
+
+@media (min-width: 801px) and (max-width: 1199px) {
+
+  .heroLogo {
+    left: 40px;
+    bottom: 155px;
+  }
+
+  .heroLogo svg,
+  .heroLogo img {
+    width: 300px;
+    height: auto;
+  }
+
+  .heroStatement {
+    left: 40px;
+    bottom: 82px;
+    width: 330px;
+  }
+
+  .heroStatement p {
+    margin: 0;
+    font-size: 28px;
+    line-height: 0.95;
+  }
+
+  .heroMeta {
+    left: 40px;
+    bottom: 28px;
+  }
+
+}
+
+/* =========================
+   IPAD VERTICAL
+   ========================= */
+
+@media (min-width: 801px) and (max-width: 1199px) and (orientation: portrait) {
+
+  .heroLogo {
+    left: 32px;
+    bottom: 175px;
+  }
+
+  .heroLogo svg,
+  .heroLogo img {
+    width: 300px;
+  }
+
+  .heroStatement {
+    left: 32px;
+    bottom: 105px;
+    width: 330px;
+  }
+
+  .heroStatement p {
+    font-size: 30px;
+    line-height: 0.95;
+  }
+
+  .heroMeta {
+    left: 32px;
+    bottom: 35px;
+  }
+
+}
+
+
+/* =========================
+   IPAD HORIZONTAL
+   ========================= */
+
+@media (min-width: 801px) and (max-width: 1199px) {
+
+  .heroLogo {
+    position: absolute;
+    left: 40px;
+    bottom: 165px;
+    z-index: 10;
+    margin: 0;
+  }
+
+  .heroStatement {
+    position: absolute;
+    left: 40px;
+    bottom: 85px;
+    z-index: 10;
+    margin: 0;
+  }
+
+  .heroMeta {
+    position: absolute;
+    left: 40px;
+    bottom: 28px;
+    z-index: 10;
+    margin: 0;
+  }
+
+}
+
+/* =========================================================
+   ONERABBIT — HERO RESPONSIVE FIX
+   Desktop / iPad / Mobile
+   ========================================================= */
+
+/* BASE */
+.heroLogoBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heroTitleLogo {
+  display: block;
+  width: clamp(240px, 26vw, 400px);
+  height: auto;
+  margin: 0 0 clamp(18px, 2.5vw, 32px);
+  filter: brightness(0) invert(1);
+}
+
+.heroLogoBlock h2 {
+  margin: 0;
+  max-width: 620px;
+}
+
+
+/* =========================================================
+   IPAD / TABLET
+   801px → 1199px
+   ========================================================= */
+
+@media (min-width: 801px) and (max-width: 1199px) {
+
+  .heroText {
+    left: clamp(28px, 4vw, 52px);
+    right: clamp(28px, 4vw, 52px);
+    bottom: clamp(32px, 6vh, 64px);
+    max-width: 720px;
+  }
+
+  .heroText > p {
+    margin-bottom: 18px;
+    font-size: 9px;
+    letter-spacing: .14em;
+  }
+
+  .heroTitleLogo {
+    width: clamp(220px, 25vw, 320px);
+    margin-bottom: clamp(14px, 2vw, 24px);
+  }
+
+  .heroLogoBlock h2 {
+    max-width: 500px;
+    font-size: clamp(27px, 3.4vw, 38px);
+    line-height: .98;
+  }
+
+  .heroSignature {
+    margin-top: clamp(24px, 4vh, 40px);
+    font-size: 8px;
+    gap: 7px;
+  }
+}
+
+
+/* =========================================================
+   IPAD HORIZONTAL
+   Evita que la composición se quede demasiado baja
+   ========================================================= */
+
+@media (min-width: 801px) and (max-width: 1199px) and (max-height: 700px) {
+
+  .heroText {
+    bottom: 30px;
+  }
+
+  .heroTitleLogo {
+    width: clamp(210px, 23vw, 290px);
+    margin-bottom: 14px;
+  }
+
+  .heroLogoBlock h2 {
+    font-size: clamp(25px, 3vw, 34px);
+  }
+
+  .heroSignature {
+    margin-top: 22px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   Mantiene la composición que ya tenemos bien
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .heroText {
+   left: var(--space);
+    right: var(--space);
+    bottom: calc(9vh + 30px);
+  }
+
+  .heroTitleLogo {
+    width: clamp(240px, 70vw, 330px);
+    margin-bottom: 18px;
+  }
+
+  .heroLogoBlock h2 {
+    max-width: 320px;
+    margin: 0;
+    font-size: clamp(25px, 7.2vw, 34px);
+    line-height: .96;
+  }
+
+  .heroSignature {
+    margin-top: 32px;
+    font-size: 8px;
+  }
+}
+
+/* =========================================================
+   HERO — LOGO MARK RESPONSIVE
+   ONERABBIT
+   ========================================================= */
+
+.heroLogoBlock {
+  position: relative;
+}
+
+/* Símbolo favicon */
+.heroMark {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 90px;
+  height: 90px;
+
+  object-fit: contain;
+
+  opacity: 0;
+  transform: scale(.72);
+
+  pointer-events: none;
+
+  transition:
+    opacity .5s ease,
+    transform .6s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* =========================================================
+   DESKTOP
+   El wordmark sigue siendo el protagonista
+   ========================================================= */
+
+.heroTitleLogo {
+  opacity: 1;
+  transform: scale(1);
+
+  transition:
+    opacity .45s ease,
+    transform .6s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+
+
+
+
+
+@media (min-width: 801px) and (max-width: 1199px) {
+
+  .heroTitleLogo {
+    margin-bottom: 0;
+  }
+
+  .heroLogoBlock h2 {
+    margin-top: 100px;
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  .heroTitleLogo {
+    margin-bottom: 0;
+  }
+
+  .heroLogoBlock h2 {
+    margin-top: 88px;
+  }
+
+}
+
+
+
+
+
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .logo {
+    width: 105px;
+    height: 32px;
+  }
+
+
+
+
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  width: 125px;
+  height: 36px;
+
+  flex-shrink: 0;
+}
+
+
+@media (max-width: 800px) {
+  .logo {
+    width: 105px;
+    height: 32px;
+  }
+
+ 
+
+}
+
+
+
+
+
+
+/* WORDMARK */
+
+.headerLogoWordmark {
+  transform:
+    translateY(-50%)
+    translateX(
+      calc(var(--logo-progress) * -25px)
+    )
+    scale(
+      calc(
+        1 -
+        var(--logo-progress) * .62
+      )
+    );
+
+  opacity:
+    calc(
+      1 -
+      var(--logo-progress) * 1.15
+    );
+
+  filter:
+    blur(
+      calc(var(--logo-progress) * 2px)
+    );
+
+  transform-origin: left center;
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+}
+
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .logo {
+    width: 105px;
+    height: 32px;
+  }
+
+  .headerLogoTransition {
+    width: 105px;
+    height: 32px;
+  }
+
+  .headerLogoWordmark {
+    width: 105px;
+  }
+
+  .headerLogoIcon {
+    width: 29px;
+    height: 29px;
+  }
+
+}
+
+
+/* =========================================================
+   HEADER LOGO
+   ONERABBIT → ISOTIPO
+   SINGLE SOURCE OF TRUTH
+   ========================================================= */
+
+.header .logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  width: 125px;
+  height: 36px;
+
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.headerLogoTransition {
+  --logo-progress: 0;
+
+  position: relative;
+
+  width: 125px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: visible;
+}
+
+
+/* ---------------------------------------------------------
+   WORDMARK
+   --------------------------------------------------------- */
+
+.headerLogoWordmark {
+  position: absolute;
+  left: 0;
+  top: 50%;
+
+  width: 122px;
+  height: auto;
+
+  display: block;
+
+  transform:
+    translate3d(
+      calc(var(--logo-progress) * -18px),
+      -50%,
+      0
+    )
+    scale(
+      calc(1 - var(--logo-progress) * .28)
+    );
+
+  transform-origin: left center;
+
+  opacity:
+    calc(1 - var(--logo-progress));
+
+  filter: none;
+
+  pointer-events: none;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+/* ---------------------------------------------------------
+   ISOTIPO
+   --------------------------------------------------------- */
+
+.headerLogoIcon {
+  position: absolute;
+
+  left: -5px;
+  top: 50%;
+
+  width: 46px;
+  height: 46px;
+
+  display: block;
+
+  transform:
+    translateY(-50%)
+    scale(
+      calc(
+        .25 +
+        (
+          max(0, var(--logo-progress) - .70)
+          / .30
+        ) * .75
+      )
+    )
+    rotate(
+      calc(
+        (1 - var(--logo-progress)) * -8deg
+      )
+    );
+
+  opacity:
+    max(
+      0,
+      (
+        var(--logo-progress) - .70
+      ) / .30
+    );
+
+  filter:
+    blur(
+      calc(
+        (1 - var(--logo-progress)) * 2px
+      )
+    );
+
+  pointer-events: none;
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+}
+
+
+
+
+
+/* ---------------------------------------------------------
+   HEADER
+   --------------------------------------------------------- */
+
+.header {
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: none;
+
+  color: #fff;
+
+  transition: color .3s ease;
+}
+
+
+
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+  .header .logo {
+    width: 105px;
+    height: 32px;
+  }
+
+  .headerLogoTransition {
+    width: 105px;
+    height: 32px;
+  }
+
+  .headerLogoWordmark {
+    width: 105px;
+  }
+
+  .headerLogoIcon {
+    width: 42px;
+    height: 42px;
+    left: -5px;
+  }
+}
+
+/* =========================================================
+   PROJECT VIEW TRANSITION
+   ========================================================= */
+
+::view-transition-old(motorsport-image),
+::view-transition-new(motorsport-image) {
+  animation-duration: 0.9s;
+  animation-timing-function: cubic-bezier(
+    0.22,
+    1,
+    0.36,
+    1
+  );
+}
+
+/* =========================================================
+   PROJECT PAGE — PREVENT HORIZONTAL OVERFLOW
+   ========================================================= */
+
+.projectPage {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.projectPage > * {
+  max-width: 100%;
+}
+
+/* HOME — BODY LANGUAGE TITLE FIX */
+
+.homeBodyTitleMotion {
+  overflow: visible !important;
+}
+
+.homeBodyTitle {
+  overflow: visible !important;
+}
+
+.homeBodyTitle h2 {
+  overflow: visible !important;
+}
+
+.homeBodyTitle .maskedTitleLine {
+  overflow: visible !important;
+}
+
+/* HEADER LIGHT MODE */
+
+.header.logoOnLight {
+
+  color:#111;
+
+}
+
+
+.headerLogoWordmark,
+.headerLogoIcon {
+
+  transition:
+    filter .4s ease,
+    opacity .4s ease;
+
+}
+
+
+.header.logoOnLight .headerLogoWordmark,
+.header.logoOnLight .headerLogoIcon {
+
+  filter:invert(1);
+
+}
+
+.header {
+  color:white;
+  transition:color .4s ease;
+}
+
+
+.header.logoOnLight {
+  color:#111;
+}
+

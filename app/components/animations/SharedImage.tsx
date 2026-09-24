@@ -18,13 +18,21 @@ export default function SharedImage({
     <motion.div
       layoutId={layoutId}
       className={className}
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "100%",
+        viewTransitionName: layoutId,
+      }}
     >
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        className="projectPhoto"
-      />
+     <Image
+  src={src}
+  alt={alt}
+  fill
+  priority
+  sizes="100vw"
+  className="projectPhoto"
+/>
     </motion.div>
   );
 }

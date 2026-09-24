@@ -10,6 +10,7 @@ import ScrollExpand from "./components/animations/ScrollExpand";
 import ScrollDrift from "./components/animations/ScrollDrift";
 import HomeHeroMotion from "./components/animations/HomeHeroMotion";
 import MaskedTitle from "./components/animations/MaskedTitle";
+import TransitionLink from "./components/animations/TransitionLink";
 
 
 
@@ -47,19 +48,13 @@ export default function Home() {
     PHOTOGRAPHY · EDITORIAL · PRODUCT · PORTRAIT
   </p>
 
-  <div className="heroLogoBlock">
-    <img
-      src="/ISOTIPO-02.svg"
-      alt="ONERABBIT"
-      className="heroTitleLogo"
-    />
-
-    <h2>
-      Images with pulse,
-      <br />
-      texture and intent.
-    </h2>
-  </div>
+<div className="heroLogoBlock">
+  <h2>
+    Images with pulse,
+    <br />
+    texture and intent.
+  </h2>
+</div>
 
 
 
@@ -476,13 +471,13 @@ export default function Home() {
 
     </div>
 
-    <Link
+    <TransitionLink
       href="/projects/motorsport"
       className="homeMotorsportFooter"
     >
       <span>SELECTED MOTORSPORT</span>
       <span>VIEW PROJECT ↗</span>
-    </Link>
+    </TransitionLink>
 
   </div>
 
@@ -500,13 +495,15 @@ export default function Home() {
 
         <div className="aboutGrid">
           <div className="aboutImage">
-            <Image
-              src="/images/672_8719797188465_672.jpg"
-              alt="ONERABBIT"
-              fill
-              className="aboutPhoto"
-            />
-          </div>
+  <Image
+    src="/images/672_8719797188465_672.jpg"
+    alt="ONERABBIT"
+    fill
+    sizes="(max-width: 800px) 100vw, 45vw"
+    loading="eager"
+    className="aboutPhoto"
+  />
+</div>
 
 
 

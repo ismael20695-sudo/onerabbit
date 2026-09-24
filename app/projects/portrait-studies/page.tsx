@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function PortraitStudies() {
   return (
-    <main className="projectPage">
+   <main className="projectPage">
       <Header />
 
       <ProjectReveal delay={0.35}>
