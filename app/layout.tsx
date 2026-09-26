@@ -21,8 +21,7 @@ const inter = Inter({
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://onerabbit.studio"),
-
+metadataBase: new URL("https://www.onerabbit.studio"),
   title: {
     default: "ONERABBIT — Photography Studio",
     template: "%s — ONERABBIT",
