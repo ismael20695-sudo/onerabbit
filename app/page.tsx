@@ -23,6 +23,40 @@ export default function Home() {
 
     <main>
 
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://onerabbit.studio/#organization",
+          "name": "ONERABBIT",
+          "url": "https://onerabbit.studio/",
+          "logo": "https://onerabbit.studio/ISOTIPO-02.svg",
+          "description":
+            "Independent photography practice focused on portrait, fashion, product and visual culture.",
+          "email": "hello@onerabbit.studio",
+          "sameAs": [
+            "TU_INSTAGRAM_EDITORIAL",
+            "TU_INSTAGRAM_SPORT"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://onerabbit.studio/#website",
+          "url": "https://onerabbit.studio/",
+          "name": "ONERABBIT",
+          "publisher": {
+            "@id": "https://onerabbit.studio/#organization"
+          }
+        }
+      ]
+    }).replace(/</g, "\\u003c"),
+  }}
+/>
+
 <Header />
 
 <HomeHeroMotion>
