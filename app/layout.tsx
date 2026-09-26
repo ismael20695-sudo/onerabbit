@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Script from "next/script";
 import SmoothScroll from "./components/animations/SmoothScroll";
 import Loader from "./components/animations/Loader";
 import RouteTransition from "./components/animations/RouteTransition";
@@ -63,7 +64,22 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth">
       <body className={`${instrument.variable} ${inter.variable}`}>
 
-        <Loader />
+  <Script
+    src="https://www.googletagmanager.com/gtag/js?id=G-PGHHQ0WE6N"
+    strategy="afterInteractive"
+  />
+
+  <Script id="google-analytics" strategy="afterInteractive">
+    {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){window.dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-PGHHQ0WE6N');
+    `}
+  </Script>
+
+  <Loader />
 
         <SmoothScroll>
 
