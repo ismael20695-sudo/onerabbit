@@ -41,7 +41,7 @@ export default function Motorsport() {
 
           <div>
             <p>MOTORSPORT / RACING</p>
-
+ <h1>MotorSport</h1>
 
           </div>
 
@@ -157,7 +157,7 @@ export default function Motorsport() {
               src="/images/IMG_7889.jpg"
               alt="Mechanic preparing race car"
               fill
-              sizes="100vw"
+              sizes="(max-width: 800px) 100vw, 58vw"
               className="projectPhoto"
             />
           </div>

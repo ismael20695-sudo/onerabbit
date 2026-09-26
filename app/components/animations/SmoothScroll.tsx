@@ -36,6 +36,30 @@ export default function SmoothScroll({
     };
   }, []);
 
+useEffect(() => {
+
+  const hash = window.location.hash;
+
+  if (!hash) return;
+
+
+  setTimeout(() => {
+
+    const element = document.querySelector(hash);
+
+    if (!element) return;
+
+
+    element.scrollIntoView({
+      behavior: "smooth",
+    });
+
+
+  }, 300);
+
+
+}, [pathname]);
+  
   useEffect(() => {
     const lenis = lenisRef.current;
 

@@ -565,9 +565,9 @@ export default function Home() {
 
   <div className="contactBottom">
     <a className="contactMail"
-    href="mailto:hola@onerabbit.studio">
-      hola@onerabbit.studio
-    </a>
+    href="mailto:hello@onerabbit.studio">
+  hello@onerabbit.studio
+</a>
 
     <a href="#" target="_blank">
       INSTAGRAM ↗
