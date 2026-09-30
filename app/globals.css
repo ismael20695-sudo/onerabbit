@@ -206,7 +206,7 @@ height: 64px;
   padding-bottom: 18px;
   margin-bottom: 32px;
 
-  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+
 }
 
 .sectionHeader span {
@@ -7473,33 +7473,18 @@ left:-30px;
    HOME — SECTION TRANSITIONS
    ========================================================= */
 
-/* OBJECTS → FACES */
-
 .homeObjectsCase {
   padding-bottom: 135px;
 }
 
 .homeFacesCase {
-  margin-top: -35px;
-  padding-top: 115px;
-}
-
-
-/* FACES → MOTORSPORT */
-
-.homeFacesCase {
-  padding-bottom: 110px;
+  margin-top: 0;
+  padding-bottom: 80px;
 }
 
 .homeMotorsportCase {
-  margin-top: -40px;
-  padding-top: 150px;
-}
-
-
-/* MOTORSPORT → ABOUT */
-
-.homeMotorsportCase {
+  margin-top: 0;
+  padding-top: 90px;
   margin-bottom: 0;
 }
 
@@ -7518,47 +7503,15 @@ left:-30px;
   }
 
   .homeFacesCase {
-    margin-top: -20px;
-    padding-top: 95px;
-    padding-bottom: 95px;
+    margin-top: 0;
+    padding-bottom: 70px;
   }
 
   .homeMotorsportCase {
-    margin-top: -25px;
-    padding-top: 105px;
+    margin-top: 0;
+    padding-top: 75px;
   }
-}
 
-.homeFacesCase {
-  position: relative;
-}
-
-.homeFacesCase::after {
-  content: "";
-  position: absolute;
-
-  left: 50%;
-  bottom: -40px;
-
-  width: 100vw;
-  height: 90px;
-
-  transform: translateX(-50%);
-
-  background: linear-gradient(
-    to bottom,
-    rgba(11, 11, 11, 0),
-    rgba(11, 11, 11, .15),
-    #0b0b0b
-  );
-
-  pointer-events: none;
-  z-index: 0;
-}
-
-.homeFacesCase > * {
-  position: relative;
-  z-index: 1;
 }
 
 /* =========================================================
@@ -7682,9 +7635,7 @@ left:-30px;
   padding-bottom: 105px;
 }
 
-.homeMotorsportCase {
-  padding-top: 135px;
-}
+
 
 
 /* ---------- METADATA CONSISTENCY ---------- */
@@ -9123,5 +9074,237 @@ left:-30px;
 
 .header.logoOnLight {
   color:#111;
+}
+
+/* =========================================================
+   HOME — EDITORIAL / MOTORSPORT WORLDS
+   ========================================================= */
+
+.workWorlds {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 90px;
+  margin-bottom: 150px;
+}
+
+.workWorld {
+  position: relative;
+  display: block;
+  height: min(72vh, 760px);
+  overflow: hidden;
+  color: #f4f2ed;
+  text-decoration: none;
+  background: #111;
+}
+
+.workWorldImage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.workWorldPhoto {
+  object-fit: cover;
+  transform: scale(1.02);
+  transition:
+    transform 1.2s cubic-bezier(.22, 1, .36, 1),
+    filter 1s ease;
+}
+
+.workWorldOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, .72) 0%,
+      rgba(0, 0, 0, .18) 48%,
+      rgba(0, 0, 0, .08) 100%
+    );
+  transition: background .8s ease;
+}
+
+.workWorldContent {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 32px;
+}
+
+.workWorldContent > span:first-child {
+  margin-bottom: auto;
+
+  font-size: 9px;
+  letter-spacing: .18em;
+  opacity: .8;
+}
+
+.workWorldContent h2 {
+  margin: 0;
+
+  font-family: var(--font-instrument);
+  font-size: clamp(54px, 6vw, 105px);
+  font-weight: 400;
+  line-height: .9;
+  letter-spacing: -.035em;
+}
+
+.workWorldContent p {
+  margin: 18px 0 28px;
+
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  opacity: .8;
+}
+
+.workWorldLink {
+  position: relative;
+
+  width: fit-content;
+
+  font-size: 9px;
+  letter-spacing: .16em;
+}
+
+.workWorldLink::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+
+  width: 100%;
+  height: 1px;
+
+  background: currentColor;
+
+  transform: scaleX(0);
+  transform-origin: right center;
+
+  transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* ---------- HOVER ---------- */
+
+.workWorld:hover .workWorldPhoto {
+  transform: scale(1.055);
+  filter: saturate(.92) contrast(1.04);
+}
+
+.workWorld:hover .workWorldOverlay {
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, .62) 0%,
+      rgba(0, 0, 0, .08) 55%,
+      rgba(0, 0, 0, .02) 100%
+    );
+}
+
+.workWorld:hover .workWorldLink::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .workWorlds {
+    grid-template-columns: 1fr;
+    gap: 8px;
+
+    margin-top: 60px;
+    margin-bottom: 100px;
+  }
+
+  .workWorld {
+    height: 72svh;
+    min-height: 500px;
+  }
+
+  .workWorldContent {
+    padding: 22px;
+  }
+
+  .workWorldContent h2 {
+    font-size: clamp(52px, 15vw, 82px);
+  }
+
+  .workWorldContent p {
+    margin-top: 14px;
+    margin-bottom: 24px;
+  }
+
+}
+
+
+/* ==================================================
+   HOME — MOTORSPORT CATEGORY HEADER
+================================================== */
+
+.workCategoryHeaderMotorsport {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  gap: 24px;
+
+  padding: 150px var(--space) 55px;
+
+  border-top: 1px solid rgba(20, 20, 20, 0.16);
+  background: #f3f0e9;
+  color: #111;
+}
+
+.workCategoryHeaderMotorsport span {
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.workCategoryHeaderMotorsport span:last-child {
+  text-align: right;
+}
+
+.workCategoryHeaderMotorsport h2 {
+  margin: 0;
+
+  font-family: var(--font-instrument);
+  font-size: clamp(72px, 10vw, 150px);
+  font-weight: 400;
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  .workCategoryHeaderMotorsport {
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+
+    padding: 100px 20px 40px;
+  }
+
+  .workCategoryHeaderMotorsport h2 {
+    font-size: clamp(58px, 17vw, 92px);
+  }
+
+  .workCategoryHeaderMotorsport span:last-child {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
 }
 

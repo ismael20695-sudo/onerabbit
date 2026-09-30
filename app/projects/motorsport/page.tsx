@@ -7,12 +7,16 @@ import SharedImage from "@/app/components/animations/SharedImage";
 import ProjectReveal from "@/app/components/animations/ProjectReveal";
 
 export const metadata: Metadata = {
-  title: "Motorsport",
+  title: "Motorsport Photography",
   description:
     "Motorsport and racing photography focused on speed, machinery and human presence by ONERABBIT.",
 
+alternates: {
+  canonical: "/projects/motorsport",
+},
+
   openGraph: {
-    title: "Motorsport — ONERABBIT",
+    title: "Motorsport Photography — ONERABBIT",
     description:
       "Motorsport and racing photography focused on speed, machinery and human presence.",
 
@@ -53,7 +57,7 @@ export default function Motorsport() {
         <SharedImage
           layoutId="motorsport-image"
           src="/images/MOTORSPORT-HERO.jpg"
-          alt="Motorsport"
+          alt="Motorsport racing photography by ONERABBIT"
         />
       </section>
 

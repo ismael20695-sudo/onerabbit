@@ -9,11 +9,17 @@ import ProjectReveal from "@/app/components/animations/ProjectReveal";
 
 export const metadata: Metadata = {
   title: "Objects & Performance",
+
   description:
     "Product photography focused on material, form and performance by ONERABBIT.",
 
+  alternates: {
+    canonical: "/projects/objects-performance",
+  },
+
   openGraph: {
     title: "Objects & Performance — ONERABBIT",
+
     description:
       "Product photography focused on material, form and performance.",
 
@@ -22,11 +28,19 @@ export const metadata: Metadata = {
         url: "/images/2_Adizero.jpg",
         width: 1200,
         height: 1200,
-        alt: "Objects & Performance — ONERABBIT",
+        alt: "Product photography by ONERABBIT",
       },
     ],
 
     type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Objects & Performance — ONERABBIT",
+    description:
+      "Product photography focused on material, form and performance.",
+    images: ["/images/2_Adizero.jpg"],
   },
 };
 

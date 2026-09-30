@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   description:
     "Portrait photography exploring identity, gesture and visual presence by ONERABBIT.",
 
+ alternates: {
+    canonical: "/projects/portrait-studies",
+  },
+
   openGraph: {
     title: "Portrait Studies — ONERABBIT",
     description:
@@ -22,12 +26,21 @@ export const metadata: Metadata = {
         url: "/images/ALBA_27_10_2301356.jpg",
         width: 1200,
         height: 1500,
-        alt: "Portrait Studies — ONERABBIT",
+        alt: "Portrait photography by ONERABBIT",
       },
     ],
 
     type: "website",
   },
+
+twitter: {
+  card: "summary_large_image",
+  title: "Portrait Studies — ONERABBIT",
+  description:
+    "Portrait photography exploring identity, gesture and visual presence.",
+  images: ["/images/ALBA_27_10_2301356.jpg"],
+},
+
 };
 
 export default function PortraitStudies() {
@@ -57,7 +70,7 @@ export default function PortraitStudies() {
         <SharedImage
           layoutId="portrait-image"
           src="/images/ALBA_27_10_2301356.jpg"
-          alt="Portrait Studies"
+           alt="Portrait photography by ONERABBIT"
           className="projectHeroImage"
         />
       </section>

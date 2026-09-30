@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 
+
 export default function Footer() {
 
   return (
@@ -50,10 +51,9 @@ export default function Footer() {
         </span>
 
 
-        <Link href="/#contact">
-          CONTACT ↗
-        </Link>
-
+<Link href="/#contact">
+  CONTACT ↗
+</Link>
 
       </div>
 

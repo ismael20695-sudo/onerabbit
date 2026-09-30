@@ -7,13 +7,21 @@ import SharedImage from "@/app/components/animations/SharedImage";
 import ProjectReveal from "@/app/components/animations/ProjectReveal";
 import NextProject from "@/app/components/NextProject";
 
+export default function SelectedFaces() {
+
 export const metadata: Metadata = {
   title: "Selected Faces",
+
   description:
     "Fashion portrait photography exploring identity and character by ONERABBIT.",
 
+  alternates: {
+    canonical: "/projects/selected-faces",
+  },
+
   openGraph: {
     title: "Selected Faces — ONERABBIT",
+
     description:
       "Fashion portrait photography exploring identity and character.",
 
@@ -22,15 +30,22 @@ export const metadata: Metadata = {
         url: "/images/ENCINA_11_04_2200401_1.jpg",
         width: 1200,
         height: 1500,
-        alt: "Selected Faces — ONERABBIT",
+        alt: "Fashion portrait photography by ONERABBIT",
       },
     ],
 
     type: "website",
   },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Selected Faces — ONERABBIT",
+    description:
+      "Fashion portrait photography exploring identity and character.",
+    images: ["/images/ENCINA_11_04_2200401_1.jpg"],
+  },
 };
 
-export default function SelectedFaces() {
   return (
     <main className="projectPage">
       <Header />

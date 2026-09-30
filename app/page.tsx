@@ -11,7 +11,7 @@ import ScrollDrift from "./components/animations/ScrollDrift";
 import HomeHeroMotion from "./components/animations/HomeHeroMotion";
 import MaskedTitle from "./components/animations/MaskedTitle";
 import TransitionLink from "./components/animations/TransitionLink";
-
+import TrackedEmail from "./components/analytics/TrackedEmail";
 
 
 
@@ -113,10 +113,10 @@ export default function Home() {
     <span>2026</span>
   </div>
 
-  <p className="workIntro">
-    A selection of images exploring
-    <br />
-    portrait, movement and material.
+ <p>
+   
+
+   
   </p>
 
   <div className="projects">
@@ -597,10 +597,7 @@ export default function Home() {
   </div>
 
   <div className="contactBottom">
-    <a className="contactMail"
-    href="mailto:hello@onerabbit.studio">
-  hello@onerabbit.studio
-</a>
+  <TrackedEmail />
 
     <a href="#" target="_blank">
       INSTAGRAM ↗
