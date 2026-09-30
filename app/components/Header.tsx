@@ -41,9 +41,14 @@ export default function Header() {
       const start = 0;
       const end = 180;
 
-      const progress = (window.scrollY - start) / (end - start);
+      const rawProgress = (window.scrollY - start) / (end - start);
 
-      setScrollProgress(Math.min(1, Math.max(0, progress)));
+const clamped = Math.min(1, Math.max(0, rawProgress));
+
+const eased =
+  clamped * clamped * (3 - 2 * clamped);
+
+setScrollProgress(eased);
     };
 
     handleScroll();
