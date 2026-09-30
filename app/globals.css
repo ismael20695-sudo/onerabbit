@@ -9776,3 +9776,37 @@ left:-30px;
     font-size: 8px;
   }
 }
+
+/* =========================================================
+   LOADER — LOGO FILL
+   ========================================================= */
+
+.loader {
+  background: #111;
+}
+
+.loaderLogoWrap {
+  position: relative;
+  width: 160px;
+  height: auto;
+}
+
+.loaderLogo {
+  display: block;
+  width: 160px;
+  height: auto;
+}
+
+.loaderLogoBase {
+  opacity: 0.12;
+}
+
+.loaderLogoReveal {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.loaderLogoWhite {
+  filter: brightness(0) invert(1);
+}

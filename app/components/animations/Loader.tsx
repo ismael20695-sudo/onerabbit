@@ -34,35 +34,32 @@ export default function Loader() {
             ease: [0.22, 1, 0.36, 1],
           }}
         >
-          <motion.img
-            src="/ISOTIPO-02.svg"
-            alt="ONERABBIT"
-            className="loaderLogo"
-            initial={{
-              opacity: 0,
-              scale: 0.88,
-              y: 16,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.85,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-          />
+          <div className="loaderLogoWrap">
+            {/* Logo base */}
+            <img
+              src="/ISOTIPO-06.svg"
+              alt="ONERABBIT"
+              className="loaderLogo loaderLogoBase"
+            />
 
-          <motion.span
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{
-              duration: 1,
-              delay: 0.15,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-          />
+            {/* Logo que se revela en blanco */}
+            <motion.div
+              className="loaderLogoReveal"
+              initial={{ clipPath: "inset(0 100% 0 0)" }}
+              animate={{ clipPath: "inset(0 0% 0 0)" }}
+              transition={{
+                duration: 1.35,
+                delay: 0.15,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              <img
+                src="/ISOTIPO-06.svg"
+                alt=""
+                className="loaderLogo loaderLogoWhite"
+              />
+            </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
