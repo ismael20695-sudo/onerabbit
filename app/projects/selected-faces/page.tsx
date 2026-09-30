@@ -7,7 +7,7 @@ import SharedImage from "@/app/components/animations/SharedImage";
 import ProjectReveal from "@/app/components/animations/ProjectReveal";
 import NextProject from "@/app/components/NextProject";
 
-export default function SelectedFaces() {
+
 
 export const metadata: Metadata = {
   title: "Selected Faces",
@@ -46,6 +46,7 @@ export const metadata: Metadata = {
   },
 };
 
+export default function SelectedFaces() {
   return (
     <main className="projectPage">
       <Header />
