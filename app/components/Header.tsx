@@ -3,12 +3,39 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+const projects = [
+  {
+    number: "01",
+    title: "Body Language",
+    href: "/projects/body-language",
+  },
+  {
+    number: "02",
+    title: "Objects / Performance",
+    href: "/projects/objects-performance",
+  },
+  {
+    number: "03",
+    title: "Portrait Studies",
+    href: "/projects/portrait-studies",
+  },
+  {
+    number: "04",
+    title: "Selected Faces",
+    href: "/projects/selected-faces",
+  },
+  {
+    number: "05",
+    title: "Motorsport",
+    href: "/projects/motorsport",
+  },
+];
+
 export default function Header() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [open, setOpen] = useState(false);
+  const [workOpen, setWorkOpen] = useState(false);
 
-
-  
   useEffect(() => {
     const handleScroll = () => {
       const start = 0;
@@ -32,12 +59,11 @@ export default function Header() {
 
   const closeMenu = () => {
     setOpen(false);
+    setWorkOpen(false);
   };
 
   return (
-    <header
-      className={`header ${open ? "menuOpen" : ""}`}
-    >
+    <header className={`header ${open ? "menuOpen" : ""}`}>
       <Link
         href="/"
         className="logo"
@@ -52,14 +78,12 @@ export default function Header() {
             } as React.CSSProperties
           }
         >
-          {/* WORDMARK */}
           <img
             src="/ISOTIPO-02.svg"
             alt="ONERABBIT"
             className="headerLogoWordmark"
           />
 
-          {/* ISOTIPO */}
           <img
             src="/ISOTIPO-06.svg"
             alt=""
@@ -69,10 +93,48 @@ export default function Header() {
         </div>
       </Link>
 
-      <nav className="nav">
-        <a href="/#work">WORK</a>
-        <a href="/#about">ABOUT</a>
-        <a href="/#contact">CONTACT</a>
+      <nav className="nav" aria-label="Main navigation">
+        
+<div
+  className="workNavItem"
+  onMouseEnter={() => setWorkOpen(true)}
+  onMouseLeave={() => setWorkOpen(false)}
+>
+  <button
+    type="button"
+    className="workToggle"
+    aria-expanded={workOpen}
+    aria-haspopup="true"
+  >
+    WORK
+  </button>
+
+  <div
+    className={`workDropdown ${workOpen ? "isOpen" : ""}`}
+    role="menu"
+  >
+
+            {projects.map((project) => (
+              <Link
+                key={project.href}
+                href={project.href}
+                role="menuitem"
+                onClick={closeMenu}
+              >
+                <span>{project.number}</span>
+                <strong>{project.title}</strong>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <a href="/#about" onClick={closeMenu}>
+          ABOUT
+        </a>
+
+        <a href="/#contact" onClick={closeMenu}>
+          CONTACT
+        </a>
       </nav>
 
       <button
@@ -86,9 +148,30 @@ export default function Header() {
       </button>
 
       <div className="mobileMenu">
-        <a href="/#work" onClick={closeMenu}>
-          WORK
-        </a>
+        <div className={`mobileWork ${workOpen ? "isOpen" : ""}`}>
+          <button
+            type="button"
+            className="mobileWorkToggle"
+            onClick={() => setWorkOpen((value) => !value)}
+            aria-expanded={workOpen}
+          >
+            <span>WORK</span>
+            <span>{workOpen ? "−" : "+"}</span>
+          </button>
+
+          <div className="mobileWorkList">
+            {projects.map((project) => (
+              <Link
+                key={project.href}
+                href={project.href}
+                onClick={closeMenu}
+              >
+                <span>{project.number}</span>
+                <strong>{project.title}</strong>
+              </Link>
+            ))}
+          </div>
+        </div>
 
         <a href="/#about" onClick={closeMenu}>
           ABOUT
