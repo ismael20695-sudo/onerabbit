@@ -9810,3 +9810,7 @@ left:-30px;
 .loaderLogoWhite {
   filter: brightness(0) invert(1);
 }
+
+.header {
+  mix-blend-mode: difference;
+}
