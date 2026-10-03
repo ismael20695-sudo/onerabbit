@@ -10,39 +10,36 @@ import NextProject from "@/app/components/NextProject";
 
 
 export const metadata: Metadata = {
-  title: "Selected Faces",
-
+  title: "Selected Faces — ONERABBIT",
   description:
-    "Fashion portrait photography exploring identity and character by ONERABBIT.",
-
+    "Selected Faces explores identity, gesture and presence through fashion and portrait photography by ONERABBIT.",
   alternates: {
-    canonical: "/projects/selected-faces",
+    canonical: "https://www.onerabbit.studio/projects/selected-faces",
   },
-
   openGraph: {
     title: "Selected Faces — ONERABBIT",
-
     description:
-      "Fashion portrait photography exploring identity and character.",
-
+      "Selected Faces explores identity, gesture and presence through fashion and portrait photography by ONERABBIT.",
+    url: "https://www.onerabbit.studio/projects/selected-faces",
+    siteName: "ONERABBIT",
+    type: "website",
     images: [
       {
-        url: "/images/ENCINA_11_04_2200401_1.jpg",
+        url: "https://www.onerabbit.studio/images/ENCINA_11_04_2200401_1.jpg",
         width: 1200,
         height: 1500,
-        alt: "Fashion portrait photography by ONERABBIT",
+        alt: "Selected Faces fashion portrait photography by ONERABBIT",
       },
     ],
-
-    type: "website",
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Selected Faces — ONERABBIT",
     description:
-      "Fashion portrait photography exploring identity and character.",
-    images: ["/images/ENCINA_11_04_2200401_1.jpg"],
+      "Selected Faces explores identity, gesture and presence through fashion and portrait photography by ONERABBIT.",
+    images: [
+      "https://www.onerabbit.studio/images/ENCINA_11_04_2200401_1.jpg",
+    ],
   },
 };
 

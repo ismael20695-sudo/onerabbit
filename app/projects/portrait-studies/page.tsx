@@ -8,39 +8,37 @@ import SharedImage from "@/app/components/animations/SharedImage";
 import ProjectReveal from "@/app/components/animations/ProjectReveal";
 
 export const metadata: Metadata = {
-  title: "Portrait Studies",
+  title: "Portrait Studies — ONERABBIT",
   description:
-    "Portrait photography exploring identity, gesture and visual presence by ONERABBIT.",
-
- alternates: {
-    canonical: "/projects/portrait-studies",
+    "Portrait Studies explores identity, gesture, light and visual presence through editorial portrait photography by ONERABBIT.",
+  alternates: {
+    canonical: "https://www.onerabbit.studio/projects/portrait-studies",
   },
-
   openGraph: {
     title: "Portrait Studies — ONERABBIT",
     description:
-      "Portrait photography exploring identity, gesture and visual presence.",
-
+      "Portrait Studies explores identity, gesture, light and visual presence through editorial portrait photography by ONERABBIT.",
+    url: "https://www.onerabbit.studio/projects/portrait-studies",
+    siteName: "ONERABBIT",
+    type: "website",
     images: [
       {
-        url: "/images/ALBA_27_10_2301356.jpg",
+        url: "https://www.onerabbit.studio/images/ALBA_27_10_2301356.jpg",
         width: 1200,
         height: 1500,
-        alt: "Portrait photography by ONERABBIT",
+        alt: "Portrait Studies photography by ONERABBIT",
       },
     ],
-
-    type: "website",
   },
-
-twitter: {
-  card: "summary_large_image",
-  title: "Portrait Studies — ONERABBIT",
-  description:
-    "Portrait photography exploring identity, gesture and visual presence.",
-  images: ["/images/ALBA_27_10_2301356.jpg"],
-},
-
+  twitter: {
+    card: "summary_large_image",
+    title: "Portrait Studies — ONERABBIT",
+    description:
+      "Portrait Studies explores identity, gesture, light and visual presence through editorial portrait photography by ONERABBIT.",
+    images: [
+      "https://www.onerabbit.studio/images/ALBA_27_10_2301356.jpg",
+    ],
+  },
 };
 
 export default function PortraitStudies() {

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import FadeUp from "./components/animations/FadeUp";
 import HomeRevealImage from "./components/animations/HomeRevealImage";
 import Parallax from "./components/animations/Parallax";
@@ -13,7 +14,37 @@ import MaskedTitle from "./components/animations/MaskedTitle";
 import TransitionLink from "./components/animations/TransitionLink";
 import TrackedEmail from "./components/analytics/TrackedEmail";
 
-
+export const metadata: Metadata = {
+  title: "ONERABBIT — Photography, Editorial & Visual Direction",
+  description:
+    "ONERABBIT is an independent photography practice based in Spain, working across portrait, fashion, editorial, product, visual culture and motorsport.",
+  alternates: {
+    canonical: "https://www.onerabbit.studio/",
+  },
+  openGraph: {
+    title: "ONERABBIT — Photography, Editorial & Visual Direction",
+    description:
+      "Independent photography practice working across portrait, fashion, editorial, product, visual culture and motorsport.",
+    url: "https://www.onerabbit.studio/",
+    siteName: "ONERABBIT",
+    type: "website",
+    images: [
+      {
+        url: "https://www.onerabbit.studio/images/1000_BIRKENSTOCK.jpg",
+        width: 1200,
+        height: 800,
+        alt: "ONERABBIT photography",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ONERABBIT — Photography, Editorial & Visual Direction",
+    description:
+      "Independent photography practice working across portrait, fashion, editorial, product, visual culture and motorsport.",
+    images: ["https://www.onerabbit.studio/images/1000_BIRKENSTOCK.jpg"],
+  },
+};
 
 export default function Home() {
   return (
@@ -39,8 +70,8 @@ export default function Home() {
             "Independent photography practice focused on portrait, fashion, product and visual culture.",
           "email": "hello@onerabbit.studio",
           "sameAs": [
-           
-          ]
+  "https://www.instagram.com/onerabbit.motorsport/"
+]
         },
         {
           "@type": "WebSite",

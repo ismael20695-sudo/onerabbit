@@ -7,29 +7,36 @@ import SharedImage from "@/app/components/animations/SharedImage";
 import ProjectReveal from "@/app/components/animations/ProjectReveal";
 
 export const metadata: Metadata = {
-  title: "Motorsport Photography",
+  title: "Motorsport Photography — ONERABBIT",
   description:
-    "Motorsport and racing photography focused on speed, machinery and human presence by ONERABBIT.",
-
-alternates: {
-  canonical: "/projects/motorsport",
-},
-
+    "Motorsport photography exploring speed, racing, machinery and human presence through action and documentary imagery by ONERABBIT.",
+  alternates: {
+    canonical: "https://www.onerabbit.studio/projects/motorsport",
+  },
   openGraph: {
     title: "Motorsport Photography — ONERABBIT",
     description:
-      "Motorsport and racing photography focused on speed, machinery and human presence.",
-
+      "Motorsport photography exploring speed, racing, machinery and human presence through action and documentary imagery by ONERABBIT.",
+    url: "https://www.onerabbit.studio/projects/motorsport",
+    siteName: "ONERABBIT",
+    type: "website",
     images: [
       {
-        url: "/images/MOTORSPORT-HERO.jpg",
+        url: "https://www.onerabbit.studio/images/MOTORSPORT-HERO.jpg",
         width: 1600,
         height: 900,
-        alt: "Motorsport — ONERABBIT",
+        alt: "Motorsport racing photography by ONERABBIT",
       },
     ],
-
-    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Motorsport Photography — ONERABBIT",
+    description:
+      "Motorsport photography exploring speed, racing, machinery and human presence through action and documentary imagery by ONERABBIT.",
+    images: [
+      "https://www.onerabbit.studio/images/MOTORSPORT-HERO.jpg",
+    ],
   },
 };
 

@@ -8,39 +8,36 @@ import SharedImage from "@/app/components/animations/SharedImage";
 import ProjectReveal from "@/app/components/animations/ProjectReveal";
 
 export const metadata: Metadata = {
-  title: "Objects & Performance",
-
+  title: "Objects & Performance — ONERABBIT",
   description:
-    "Product photography focused on material, form and performance by ONERABBIT.",
-
+    "Objects & Performance explores material, form and performance through product and still life photography by ONERABBIT.",
   alternates: {
-    canonical: "/projects/objects-performance",
+    canonical: "https://www.onerabbit.studio/projects/objects-performance",
   },
-
   openGraph: {
     title: "Objects & Performance — ONERABBIT",
-
     description:
-      "Product photography focused on material, form and performance.",
-
+      "Objects & Performance explores material, form and performance through product and still life photography by ONERABBIT.",
+    url: "https://www.onerabbit.studio/projects/objects-performance",
+    siteName: "ONERABBIT",
+    type: "website",
     images: [
       {
-        url: "/images/2_Adizero.jpg",
+        url: "https://www.onerabbit.studio/images/2_Adizero.jpg",
         width: 1200,
         height: 1200,
-        alt: "Product photography by ONERABBIT",
+        alt: "Objects & Performance photography by ONERABBIT",
       },
     ],
-
-    type: "website",
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Objects & Performance — ONERABBIT",
     description:
-      "Product photography focused on material, form and performance.",
-    images: ["/images/2_Adizero.jpg"],
+      "Objects & Performance explores material, form and performance through product and still life photography by ONERABBIT.",
+    images: [
+      "https://www.onerabbit.studio/images/2_Adizero.jpg",
+    ],
   },
 };
 

@@ -8,39 +8,37 @@ import SharedImage from "@/app/components/animations/SharedImage";
 import ProjectReveal from "@/app/components/animations/ProjectReveal";
 
 export const metadata: Metadata = {
-  title: "Body Language",
+  title: "Body Language — ONERABBIT",
   description:
-    "Movement, gesture and human expression through photography by ONERABBIT.",
-
- alternates: {
-    canonical: "/projects/body-language",
+    "Body Language explores movement, gesture and human expression through independent photography by ONERABBIT.",
+  alternates: {
+    canonical: "https://www.onerabbit.studio/projects/body-language",
   },
-
   openGraph: {
     title: "Body Language — ONERABBIT",
     description:
-      "Movement, gesture and human expression through photography.",
-
+      "Body Language explores movement, gesture and human expression through independent photography by ONERABBIT.",
+    url: "https://www.onerabbit.studio/projects/body-language",
+    siteName: "ONERABBIT",
+    type: "website",
     images: [
       {
-        url: "/images/HECTOR_10_9_2300501.jpg",
+        url: "https://www.onerabbit.studio/images/HECTOR_10_9_2300501.jpg",
         width: 1200,
         height: 1500,
         alt: "Body Language photography by ONERABBIT",
       },
     ],
-
-    type: "website",
   },
-
-twitter: {
-  card: "summary_large_image",
-  title: "Body Language — ONERABBIT",
-  description:
-    "Movement, gesture and human expression through photography.",
-  images: ["/images/HECTOR_10_9_2300501.jpg"],
-},
-
+  twitter: {
+    card: "summary_large_image",
+    title: "Body Language — ONERABBIT",
+    description:
+      "Body Language explores movement, gesture and human expression through independent photography by ONERABBIT.",
+    images: [
+      "https://www.onerabbit.studio/images/HECTOR_10_9_2300501.jpg",
+    ],
+  },
 };
 
 export default function BodyLanguage() {
