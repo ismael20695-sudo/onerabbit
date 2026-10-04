@@ -9814,3 +9814,127 @@ left:-30px;
 .header {
   mix-blend-mode: difference;
 }
+
+/* =========================================================
+   OBJECTS TITLE — FIRST LINE MOBILE FIX
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .homeObjectsTitle h2 > .maskedTitleLine:first-child {
+    display: block !important;
+    overflow: hidden !important;
+    height: 1em !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .homeObjectsTitle h2 > .maskedTitleLine:first-child > div {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .homeObjectsTitle h2 > .maskedTitleLine:first-child span {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+}
+
+/* =========================================================
+   SELECTED FACES — MOBILE FIX
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .homeFacesTitle h2 > .maskedTitleLine:first-child {
+    display: block !important;
+    overflow: hidden !important;
+    height: 1em !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .homeFacesTitle h2 > .maskedTitleLine:first-child > div {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .homeFacesTitle h2 > .maskedTitleLine:first-child span {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+}
+
+/* =========================================================
+   SELECTED FACES — SECOND TITLE FIX
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .homeFacesTitle h2 > .maskedTitleLine:nth-child(2) {
+    display: block !important;
+    overflow: hidden !important;
+    height: 1em !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .homeFacesTitle h2 > .maskedTitleLine:nth-child(2) > div {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .homeFacesTitle h2 > .maskedTitleLine:nth-child(2) span {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+}
+
+/* =========================================================
+   MOTORSPORT — MOBILE TITLE FIX
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .homeMotorsportTitle h2 > .maskedTitleLine:first-child {
+    display: block !important;
+    overflow: hidden !important;
+    height: 1em !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .homeMotorsportTitle h2 > .maskedTitleLine:first-child > div {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .homeMotorsportTitle h2 > .maskedTitleLine:first-child span {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  .header {
+    mix-blend-mode: normal;
+  }
+
+  .menuOpen .header {
+    mix-blend-mode: normal;
+  }
+
+}
