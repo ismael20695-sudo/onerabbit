@@ -69,7 +69,8 @@ export default function Home() {
           "description":
             "Independent photography practice focused on portrait, fashion, product and visual culture.",
           "email": "hello@onerabbit.studio",
-          "sameAs": [
+"sameAs": [
+  "https://www.instagram.com/onerabbit.studio/",
   "https://www.instagram.com/onerabbit.motorsport/"
 ]
         },
@@ -630,9 +631,21 @@ export default function Home() {
   <div className="contactBottom">
   <TrackedEmail />
 
-    <a href="#" target="_blank">
-      INSTAGRAM ↗
-    </a>
+  <a
+  href="https://www.instagram.com/onerabbit.studio/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  INSTAGRAM / STUDIO ↗
+</a>
+
+<a
+  href="https://www.instagram.com/onerabbit.motorsport/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  INSTAGRAM / MOTORSPORT ↗
+</a>
   </div>
 
 

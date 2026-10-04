@@ -142,6 +142,8 @@ setScrollProgress(eased);
         </a>
       </nav>
 
+
+
       <button
         className="menuButton"
         onClick={() => setOpen((value) => !value)}
