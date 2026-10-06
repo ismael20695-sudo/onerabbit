@@ -13,6 +13,8 @@ import HomeHeroMotion from "./components/animations/HomeHeroMotion";
 import MaskedTitle from "./components/animations/MaskedTitle";
 import TransitionLink from "./components/animations/TransitionLink";
 import TrackedEmail from "./components/analytics/TrackedEmail";
+import ContactForm from "./components/ContactForm";
+
 
 export const metadata: Metadata = {
   title: "ONERABBIT — Photography, Editorial & Visual Direction",
@@ -609,6 +611,7 @@ export default function Home() {
 </div>
 
       </section>
+
 <section id="contact" className="contact">
   <div className="contactTop">
     <span>03</span>
@@ -616,41 +619,56 @@ export default function Home() {
     <span>AVAILABLE WORLDWIDE</span>
   </div>
 
-  <div className="contactMain">
-    <p className="contactSmall">
-      Have a project in mind?
-    </p>
+  <div className="contactGrid">
 
-    <h2>
-      Let&apos;s make
-      <br />
-      something visible.
-    </h2>
+    <div className="contactIntro">
+      <p className="contactSmall">
+        Have a project in mind?
+      </p>
+
+      <h2>
+        Let&apos;s make
+        <br />
+        something visible.
+      </h2>
+
+      <p className="contactDescription">
+        New projects, collaborations or just an idea.
+        <br />
+        Tell me a bit about what you have in mind and
+        <br />
+        I&apos;ll get back to you within 24 hours.
+      </p>
+    </div>
+
+    <ContactForm />
+
   </div>
 
   <div className="contactBottom">
-  <TrackedEmail />
 
-  <a
-  href="https://www.instagram.com/onerabbit.studio/"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  INSTAGRAM / STUDIO ↗
-</a>
+    <TrackedEmail />
 
-<a
-  href="https://www.instagram.com/onerabbit.motorsport/"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  INSTAGRAM / MOTORSPORT ↗
-</a>
+    <a
+      href="https://www.instagram.com/onerabbit.studio/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      INSTAGRAM / STUDIO ↗
+    </a>
+
+    <a
+      href="https://www.instagram.com/onerabbit.motorsport/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      INSTAGRAM / MOTORSPORT ↗
+    </a>
+
   </div>
-
-
-
 </section>
+
+
     </main>
 
 
