@@ -10352,3 +10352,28 @@ left:-30px;
   letter-spacing: .08em;
   font-weight: 500;
 }
+
+
+.languageSwitch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 18px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.languageSwitch a {
+  text-decoration: none;
+  opacity: 0.45;
+  transition: opacity 0.2s ease;
+}
+
+.languageSwitch a:hover,
+.languageSwitch a.active {
+  opacity: 1;
+}
+
+.languageSwitch span {
+  opacity: 0.3;
+}

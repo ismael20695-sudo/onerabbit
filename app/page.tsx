@@ -14,6 +14,9 @@ import MaskedTitle from "./components/animations/MaskedTitle";
 import TransitionLink from "./components/animations/TransitionLink";
 import TrackedEmail from "./components/analytics/TrackedEmail";
 import ContactForm from "./components/ContactForm";
+import es from "./content/es";
+
+
 
 
 export const metadata: Metadata = {
@@ -48,7 +51,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+export default function Home({
+  content = es,
+  isEnglish = false,
+}: {
+  content?: typeof es;
+  isEnglish?: boolean;
+}) { 
+  
   return (
 
     
@@ -112,28 +122,27 @@ export default function Home() {
 <div className="heroText">
 
   <p>
-    PHOTOGRAPHY · EDITORIAL · PRODUCT · PORTRAIT
+    {content.hero.categories}
   </p>
 
-<div className="heroLogoBlock">
-  <h2>
-    Images with pulse,
-    <br />
-    texture and intent.
-  </h2>
-</div>
-
-
+  <div className="heroLogoBlock">
+    <h2>
+      {content.hero.title[0]}
+      <br />
+      {content.hero.title[1]}
+    </h2>
+  </div>
 
   <div className="heroSignature">
     <span>
-      Independent photography practice
+      {content.hero.signature}
     </span>
 
     <span>
-      Spain · Worldwide
+      {content.hero.location}
     </span>
   </div>
+
 </div>
 
   </section>
@@ -141,11 +150,11 @@ export default function Home() {
 
 <section id="work" className="work">
 
-  <div className="sectionHeader workHeader">
-    <span>01</span>
-    <span>SELECTED WORK</span>
-    <span>2026</span>
-  </div>
+<div className="sectionHeader workHeader">
+  <span>{content.work.number}</span>
+  <span>{content.work.title}</span>
+  <span>{content.work.year}</span>
+</div>
 
  <p>
    
@@ -158,8 +167,8 @@ export default function Home() {
 
 <section className="homeCase homeCasePortrait">
   <div className="homeCaseTop">
-    <span>01 / EDITORIAL</span>
-    <span>2026</span>
+    <span>{content.work.portrait.number}</span>
+<span>{content.work.portrait.year}</span>
   </div>
 
 
@@ -171,18 +180,22 @@ export default function Home() {
   <div className="homeCaseTitle">
 <h2>
   <MaskedTitle>
-    <span>Portrait</span>
+  <span>{content.work.portrait.title[0]}</span>
   </MaskedTitle>
 
   <MaskedTitle delay={0.08}>
-    <span>Studies</span>
+    <span>{content.work.portrait.title[0]}</span>
   </MaskedTitle>
 </h2>
   </div>
 </ScrollDrift>
 
 <Link
-  href="/projects/portrait-studies"
+  href={
+  isEnglish
+    ? "/en/projects/portrait-studies"
+    : "/projects/portrait-studies"
+}
   className="homeCaseLink"
 >
   <div className="homePortraitImageMotion">
@@ -206,8 +219,8 @@ export default function Home() {
   </div>
 
   <div className="homeCaseBottom">
-    <span>PORTRAIT / EDITORIAL</span>
-    <span>VIEW PROJECT ↗</span>
+    <span>{content.work.portrait.category}</span>
+<span>{content.work.portrait.view}</span>
   </div>
 </Link>
 
@@ -215,21 +228,21 @@ export default function Home() {
 
 
 
-          <section className="manifesto">
-            <p>
-              Faces, gesture,
-              <br />
-              light and tension.
-            </p>
-          </section>
+<section className="manifesto">
+  <p>
+    {content.work.manifesto[0]}
+    <br />
+    {content.work.manifesto[1]}
+  </p>
+</section>
 
 <section className="homeBodyCase">
 
-  <div className="homeBodyTop">
-    <span>02 / MOVEMENT</span>
-    <span>MADRID · LEÓN</span>
-    <span>2026</span>
-  </div>
+<div className="homeBodyTop">
+  <span>{content.work.body.number}</span>
+  <span>{content.work.body.location}</span>
+  <span>{content.work.body.year}</span>
+</div>
 
 <ScrollDrift
   className="homeBodyTitleMotion"
@@ -239,11 +252,11 @@ export default function Home() {
   <div className="homeBodyTitle">
 <h2>
   <MaskedTitle>
-    <span>Body</span>
+    <span>{content.work.body.title[0]}</span>
   </MaskedTitle>
 
   <MaskedTitle delay={0.08}>
-    <span>Language</span>
+    <span>{content.work.body.title[1]}</span>
   </MaskedTitle>
 </h2>
   </div>
@@ -259,7 +272,7 @@ export default function Home() {
   scaleTo={1}
   >
     <Link
-      href="/projects/body-language"
+      href={isEnglish ? "/en/projects/body-language" : "/projects/body-language"}
       className="homeBodyMainLink"
     >
       <HomeCaseImage layoutId="body-image">
@@ -294,9 +307,9 @@ export default function Home() {
       </HomeRevealImage>
 
       <p>
-        Movement as structure.
-        <br />
-        Gesture as form.
+      {content.work.body.description[0]}
+<br />
+{content.work.body.description[1]}
       </p>
     </div>
   </ScrollDrift>
@@ -304,44 +317,44 @@ export default function Home() {
 </div>
 
   <Link
-    href="/projects/body-language"
+    href={isEnglish ? "/en/projects/body-language" : "/projects/body-language"}
     className="homeBodyFooter"
   >
-    <span>PORTRAIT / MOVEMENT</span>
-    <span>VIEW PROJECT ↗</span>
+  <span>{content.work.body.category}</span>
+<span>{content.work.body.view}</span>
   </Link>
 
 </section>
          
          <section className="homeObjectsCase">
 
-  <div className="homeObjectsTop">
-    <span>03 / PRODUCT</span>
-    <span>OBJECT STUDY</span>
-    <span>2026</span>
-  </div>
+<div className="homeObjectsTop">
+  <span>{content.work.objects.number}</span>
+  <span>{content.work.objects.subtitle}</span>
+  <span>{content.work.objects.year}</span>
+</div>
 
   <div className="homeObjectsTitle">
 <h2>
   <MaskedTitle>
-    <span>Objects</span>
+    <span>{content.work.objects.title[0]}</span>
   </MaskedTitle>
 
   <MaskedTitle delay={0.08}>
-    <span>& Performance</span>
+    <span>& {content.work.objects.title[1]}</span>
   </MaskedTitle>
 </h2>
   </div>
 
   <div className="homeObjectsIntro">
     <p>
-      Material, balance
-      <br />
-      and visual tension.
+      {content.work.objects.description[0]}
+<br />
+{content.work.objects.description[1]}
     </p>
 
     <span>
-      PRODUCT / STILL LIFE
+      {content.work.objects.category}
     </span>
   </div>
 
@@ -351,7 +364,11 @@ export default function Home() {
 
   <ScrollExpand>
     <Link
-      href="/projects/objects-performance"
+      href={
+  isEnglish
+    ? "/en/projects/objects-performance"
+    : "/projects/objects-performance"
+}
       className="homeObjectsMain"
     >
       <HomeCaseImage layoutId="product-image">
@@ -385,25 +402,29 @@ export default function Home() {
   </div>
 
   <Link
-    href="/projects/objects-performance"
+    href={isEnglish ? "/en/projects/objects-performance" : "/projects/objects-performance"}
     className="homeObjectsFooter"
   >
-    <span>INDEPENDENT STUDY</span>
-    <span>VIEW PROJECT ↗</span>
+    <span>{content.work.objects.footer}</span>
+<span>{content.work.objects.view}</span>
   </Link>
 
 </section>
 
 <section className="homeFacesCase">
 
-  <div className="homeFacesTop">
-    <span>04 / FASHION</span>
-    <span>PORTRAIT STUDY</span>
-    <span>2026</span>
-  </div>
+<div className="homeFacesTop">
+  <span>{content.work.faces.number}</span>
+  <span>{content.work.faces.subtitle}</span>
+  <span>{content.work.faces.year}</span>
+</div>
 
 <Link
-  href="/projects/selected-faces"
+  href={
+  isEnglish
+    ? "/en/projects/selected-faces"
+    : "/projects/selected-faces"
+}
   className="homeFacesMain"
 >
   <div className="homeFacesImageMotion">
@@ -435,11 +456,11 @@ export default function Home() {
     <div className="homeFacesTitle">
 <h2>
   <MaskedTitle>
-    <span>Selected</span>
+    <span>{content.work.faces.title[0]}</span>
   </MaskedTitle>
 
   <MaskedTitle delay={0.08}>
-    <span>Faces</span>
+    <span>{content.work.faces.title[1]}</span>
   </MaskedTitle>
 </h2>
     </div>
@@ -448,13 +469,13 @@ export default function Home() {
 
   <div className="homeFacesBottom">
     <p>
-      Faces as identity,
-      <br />
-      gesture and presence.
+      {content.work.faces.description[0]}
+<br />
+{content.work.faces.description[1]}
     </p>
 
-    <Link href="/projects/selected-faces">
-      VIEW PROJECT ↗
+    <Link href={isEnglish ? "/en/projects/selected-faces" : "/projects/selected-faces"}>
+     {content.work.faces.view}
     </Link>
   </div>
 
@@ -464,19 +485,17 @@ export default function Home() {
 
   <div className="homeMotorsportInner">
 
-    <div className="homeMotorsportTop">
-      <span>05 / MOTORSPORT</span>
-      <span>SPEED · MACHINE · ATMOSPHERE</span>
-      <span>2026</span>
-    </div>
+   <div className="homeMotorsportTop">
+  <span>{content.work.motorsport.number}</span>
+  <span>{content.work.motorsport.subtitle}</span>
+  <span>{content.work.motorsport.year}</span>
+</div>
 
-    <div className="homeMotorsportTitle">
-     <h2>
-  <MaskedTitle>
-    <span>Motorsport</span>
-  </MaskedTitle>
-</h2>
-    </div>
+<div className="homeMotorsportTitle">
+  <h2>
+    {content.work.motorsport.title}
+  </h2>
+</div>
 
 <div className="homeMotorsportMainMotion">
 <ScrollDrift
@@ -486,7 +505,11 @@ export default function Home() {
   scaleTo={1}
 >
     <Link
-      href="/projects/motorsport"
+      href={
+  isEnglish
+    ? "/en/projects/motorsport"
+    : "/projects/motorsport"
+}
       className="homeMotorsportMain"
     >
       <HomeCaseImage layoutId="motorsport-image">
@@ -505,12 +528,12 @@ export default function Home() {
     <div className="homeMotorsportLower">
 
       <div className="homeMotorsportCopy">
-        <span>RACING / DOCUMENTARY</span>
+        <span>{content.work.motorsport.category}</span>
 
         <p>
-          Speed, pressure
-          <br />
-          and mechanical rhythm.
+          {content.work.motorsport.description[0]}
+<br />
+{content.work.motorsport.description[1]}
         </p>
       </div>
 
@@ -532,18 +555,18 @@ export default function Home() {
       </div>
     </HomeRevealImage>
 
-    <span>BEHIND THE MACHINE</span>
+    <span>{content.work.motorsport.detail}</span>
   </div>
 </ScrollDrift>
 
     </div>
 
     <TransitionLink
-      href="/projects/motorsport"
+      href={isEnglish ? "/en/projects/motorsport" : "/projects/motorsport"}
       className="homeMotorsportFooter"
     >
-      <span>SELECTED MOTORSPORT</span>
-      <span>VIEW PROJECT ↗</span>
+      <span>{content.work.motorsport.footer}</span>
+<span>{content.work.motorsport.view}</span>
     </TransitionLink>
 
   </div>
@@ -554,11 +577,11 @@ export default function Home() {
       </section>
 
       <section id="about" className="about">
-        <div className="sectionHeader">
-          <span>02</span>
-          <span>ABOUT</span>
-          <span>ONERABBIT</span>
-        </div>
+       <div className="sectionHeader">
+  <span>{content.about.number}</span>
+  <span>{content.about.title}</span>
+  <span>{content.about.studio}</span>
+</div>
 
         <div className="aboutGrid">
           <div className="aboutImage">
@@ -576,29 +599,27 @@ export default function Home() {
 
           <div className="aboutContent">
             <p className="aboutLead">
-              Independent photography practice focused on portrait,
-              fashion, product and visual culture.
-            </p>
+  {content.about.lead}
+</p>
 
             <div className="aboutInfo">
               <p>
-                Working between León and Madrid.
-                Available for editorial, commercial and independent projects.
-              </p>
+  {content.about.description}
+</p>
 
               <div className="aboutDetails">
                 <div>
-                  <span>FOCUS</span>
-                  <p>
-                    Photography · Art Direction · Visual Direction
-                  </p>
+                  <span>{content.about.focus}</span>
+<p>
+  {content.about.focusValue}
+</p>
                 </div>
 
                 <div>
-                  <span>AVAILABLE FOR</span>
-                  <p>
-                    Campaigns · Editorial · Portrait · Product · Lookbooks
-                  </p>
+                  <span>{content.about.availableFor}</span>
+<p>
+  {content.about.availableForValue}
+</p>
                 </div>
               </div>
             </div>
@@ -606,42 +627,43 @@ export default function Home() {
         </div>
 
 <div className="aboutSignature">
-  <span>Based in Spain</span>
-  <span>Available worldwide</span>
+  <span>{content.about.signature.location}</span>
+  <span>{content.about.signature.availability}</span>
 </div>
 
       </section>
 
 <section id="contact" className="contact">
   <div className="contactTop">
-    <span>03</span>
-    <span>CONTACT</span>
-    <span>AVAILABLE WORLDWIDE</span>
-  </div>
+  <span>{content.contact.number}</span>
+  <span>{content.contact.title}</span>
+  <span>{content.contact.availability}</span>
+</div>
 
   <div className="contactGrid">
 
     <div className="contactIntro">
       <p className="contactSmall">
-        Have a project in mind?
-      </p>
+  {content.contact.intro}
+</p>
 
-      <h2>
-        Let&apos;s make
-        <br />
-        something visible.
-      </h2>
+     <h2>
+  {content.contact.heading[0]}
+  <br />
+  {content.contact.heading[1]}
+</h2>
 
-      <p className="contactDescription">
-        New projects, collaborations or just an idea.
-        <br />
-        Tell me a bit about what you have in mind and
-        <br />
-        I&apos;ll get back to you within 24 hours.
-      </p>
+     <p className="contactDescription">
+  {content.contact.description[0]}
+  <br />
+  {content.contact.description[1]}
+  <br />
+  {content.contact.description[2]}
+</p>
     </div>
 
-    <ContactForm />
+<ContactForm content={content} />
+
 
   </div>
 

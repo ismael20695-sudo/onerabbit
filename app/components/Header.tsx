@@ -1,38 +1,63 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import es from "../content/es";
 
-const projects = [
+type ProjectKey =
+  | "body"
+  | "objects"
+  | "portrait"
+  | "faces"
+  | "motorsport";
+
+const projects: {
+  key: ProjectKey;
+  href: string;
+}[] = [
   {
-    number: "01",
-    title: "Body Language",
+    key: "body",
     href: "/projects/body-language",
   },
   {
-    number: "02",
-    title: "Objects / Performance",
+    key: "objects",
     href: "/projects/objects-performance",
   },
   {
-    number: "03",
-    title: "Portrait Studies",
+    key: "portrait",
     href: "/projects/portrait-studies",
   },
   {
-    number: "04",
-    title: "Selected Faces",
+    key: "faces",
     href: "/projects/selected-faces",
   },
   {
-    number: "05",
-    title: "Motorsport",
+    key: "motorsport",
     href: "/projects/motorsport",
   },
 ];
 
-export default function Header() {
-  const [scrollProgress, setScrollProgress] = useState(0);
+type HeaderContent = typeof es;
+
+export default function Header({
+  content = es,
+}: {
+  content?: HeaderContent;
+}) {
+    const [scrollProgress, setScrollProgress] = useState(0);
+    const pathname = usePathname();
+const isEnglish = pathname.startsWith("/en");
+
+const projectHref = (href: string) =>
+  isEnglish ? `/en${href}` : href;
+
+const languageHref = isEnglish
+  ? pathname.replace(/^\/en(?=\/|$)/, "") || "/"
+  : pathname === "/"
+    ? "/en"
+    : `/en${pathname}`;
+
   const [open, setOpen] = useState(false);
   const [workOpen, setWorkOpen] = useState(false);
 
@@ -67,14 +92,22 @@ setScrollProgress(eased);
     setWorkOpen(false);
   };
 
+const projectLabels = {
+  body: content.work.body.title.join(" "),
+  objects: content.work.objects.title.join(" "),
+  portrait: content.work.portrait.title.join(" "),
+  faces: content.work.faces.title.join(" "),
+  motorsport: content.work.motorsport.title,
+};
+
   return (
     <header className={`header ${open ? "menuOpen" : ""}`}>
       <Link
-        href="/"
-        className="logo"
-        onClick={closeMenu}
-        aria-label="ONERABBIT"
-      >
+  href={isEnglish ? "/en" : "/"}
+  className="logo"
+  onClick={closeMenu}
+  aria-label="ONERABBIT"
+>
         <div
           className="headerLogoTransition"
           style={
@@ -111,7 +144,7 @@ setScrollProgress(eased);
     aria-expanded={workOpen}
     aria-haspopup="true"
   >
-    WORK
+    {content.nav.work}
   </button>
 
   <div
@@ -119,30 +152,56 @@ setScrollProgress(eased);
     role="menu"
   >
 
-            {projects.map((project) => (
-              <Link
-                key={project.href}
-                href={project.href}
-                role="menuitem"
-                onClick={closeMenu}
-              >
-                <span>{project.number}</span>
-                <strong>{project.title}</strong>
-              </Link>
-            ))}
+{projects.map((project, index) => (
+  <Link
+    key={project.href}
+    href={isEnglish ? `/en${project.href}` : project.href}
+    role="menuitem"
+    onClick={closeMenu}
+  >
+    <span>{String(index + 1).padStart(2, "0")}</span>
+    <strong>{projectLabels[project.key]}</strong>
+  </Link>
+))}
+
+
           </div>
         </div>
 
-        <a href="/#about" onClick={closeMenu}>
-          ABOUT
-        </a>
+        <a
+  href={isEnglish ? "/en#about" : "/#about"}
+  onClick={closeMenu}
+>
+  {content.nav.about}
+</a>
 
-        <a href="/#contact" onClick={closeMenu}>
-          CONTACT
-        </a>
+        <a
+  href={isEnglish ? "/en#contact" : "/#contact"}
+  onClick={closeMenu}
+>
+  {content.nav.contact}
+</a>
       </nav>
 
+<div className="languageSwitch">
+  <Link
+    href="/"
+    className={!isEnglish ? "active" : ""}
+    onClick={closeMenu}
+  >
+    ES
+  </Link>
 
+  <span>/</span>
+
+<Link
+  href={languageHref}
+  className={isEnglish ? "active" : ""}
+  onClick={closeMenu}
+>
+  EN
+</Link>
+</div>
 
       <button
         className="menuButton"
@@ -162,31 +221,39 @@ setScrollProgress(eased);
             onClick={() => setWorkOpen((value) => !value)}
             aria-expanded={workOpen}
           >
-            <span>WORK</span>
+            <span>{content.nav.work}</span>
             <span>{workOpen ? "−" : "+"}</span>
           </button>
 
           <div className="mobileWorkList">
-            {projects.map((project) => (
+            {projects.map((project, index) => (
               <Link
                 key={project.href}
-                href={project.href}
+                href={isEnglish ? `/en${project.href}` : project.href}
                 onClick={closeMenu}
               >
-                <span>{project.number}</span>
-                <strong>{project.title}</strong>
+                
+<span>{String(index + 1).padStart(2, "0")}</span>
+<strong>{projectLabels[project.key]}</strong>
+
               </Link>
             ))}
           </div>
         </div>
 
-        <a href="/#about" onClick={closeMenu}>
-          ABOUT
-        </a>
+        <a
+  href={isEnglish ? "/en#about" : "/#about"}
+  onClick={closeMenu}
+>
+  {content.nav.about}
+</a>
 
-        <a href="/#contact" onClick={closeMenu}>
-          CONTACT
-        </a>
+        <a
+  href={isEnglish ? "/en#contact" : "/#contact"}
+  onClick={closeMenu}
+>
+  {content.nav.contact}
+</a>
       </div>
     </header>
   );

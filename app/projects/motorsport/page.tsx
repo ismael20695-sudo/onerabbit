@@ -1,10 +1,14 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import NextProject from "@/app/components/NextProject";
+
+import es from "@/app/content/es";
 import Header from "@/app/components/Header";
 import ProjectInfo from "@/app/components/ProjectInfo";
 import SharedImage from "@/app/components/animations/SharedImage";
 import ProjectReveal from "@/app/components/animations/ProjectReveal";
+
+type MotorsportContent = typeof es;
 
 export const metadata: Metadata = {
   title: "Motorsport Photography — ONERABBIT",
@@ -40,23 +44,26 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Motorsport() {
+export default function Motorsport({
+  content = es,
+}: {
+  content?: MotorsportContent;
+}) {
   return (
     <main className="projectPage motorsportPage">
-
-      <Header />
+      <Header content={content} />
 
       <ProjectReveal delay={0.35}>
         <section className="projectIntro motorsportIntro">
-          <span>05</span>
+          <span>{content.work.motorsport.number.split(" / ")[0]}</span>
 
           <div>
-            <p>MOTORSPORT / RACING</p>
- <h1>MotorSport</h1>
+            <p>{content.work.motorsport.project.introCategory}</p>
 
+            <h1>{content.work.motorsport.title}</h1>
           </div>
 
-          <span>2026</span>
+          <span>{content.work.motorsport.year}</span>
         </section>
       </ProjectReveal>
 
@@ -64,29 +71,29 @@ export default function Motorsport() {
         <SharedImage
           layoutId="motorsport-image"
           src="/images/MOTORSPORT-HERO.jpg"
-          alt="Motorsport racing photography by ONERABBIT"
+          alt={content.work.motorsport.project.imageAlt}
         />
       </section>
 
       <ProjectReveal delay={0.45}>
         <section className="projectStatement motorsportStatement">
           <p>
-            Speed, machinery and human presence
-            shaped by movement and competition.
+            {content.work.motorsport.project.statement[0]}
+            <br />
+            {content.work.motorsport.project.statement[1]}
           </p>
         </section>
       </ProjectReveal>
 
       <ProjectInfo
-        client="Independent"
-        category="Motorsport / Racing"
-        year="2026"
-        location="Spain"
+        client={content.work.motorsport.project.client}
+        category={content.work.motorsport.project.infoCategory}
+        year={content.work.motorsport.year}
+        location={content.work.motorsport.project.location}
       />
 
       <ProjectReveal delay={0.25}>
         <section className="motorsportDetails">
-
           <div className="motorsportDetailFrame motorsportDriver">
             <Image
               src="/images/IMG_7868.jpg"
@@ -106,7 +113,6 @@ export default function Motorsport() {
               className="projectPhoto"
             />
           </div>
-
         </section>
       </ProjectReveal>
 
@@ -124,7 +130,6 @@ export default function Motorsport() {
 
       <ProjectReveal delay={0.25}>
         <section className="motorsportActionPair">
-
           <div className="motorsportActionFrame">
             <Image
               src="/images/IMG_6948.jpg"
@@ -144,7 +149,6 @@ export default function Motorsport() {
               className="projectPhoto"
             />
           </div>
-
         </section>
       </ProjectReveal>
 
@@ -162,7 +166,6 @@ export default function Motorsport() {
 
       <ProjectReveal delay={0.3}>
         <section className="motorsportClosing">
-
           <div className="motorsportClosingFrame">
             <Image
               src="/images/IMG_7889.jpg"
@@ -172,19 +175,17 @@ export default function Motorsport() {
               className="projectPhoto"
             />
           </div>
-
         </section>
       </ProjectReveal>
 
       <NextProject
-        number="01"
-        title={"Portrait\nStudies"}
-        category="EDITORIAL / PORTRAIT"
-        href="/projects/portrait-studies"
+        number={content.work.motorsport.project.nextNumber}
+        title={content.work.motorsport.project.nextTitle}
+        category={content.work.motorsport.project.nextCategory}
+        href={content.work.motorsport.project.nextHref}
         image="/images/ALBA_27_10_2301356.jpg"
         layoutId="portrait-image"
       />
-
     </main>
   );
 }

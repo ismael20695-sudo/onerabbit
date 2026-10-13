@@ -1,8 +1,15 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import es from "../content/es";
 
-export default function ContactForm() {
+type ContactContent = typeof es;
+
+export default function ContactForm({
+  content,
+}: {
+  content: ContactContent;
+}) {
   const [status, setStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
@@ -52,26 +59,30 @@ export default function ContactForm() {
   return (
     <form className="contactForm" onSubmit={handleSubmit}>
       <div className="formField">
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name">
+          {content.contact.form.name}
+        </label>
 
         <input
           id="name"
           name="name"
           type="text"
-          placeholder="Your name"
+          placeholder={content.contact.form.namePlaceholder}
           autoComplete="name"
           required
         />
       </div>
 
       <div className="formField">
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">
+          {content.contact.form.email}
+        </label>
 
         <input
           id="email"
           name="email"
           type="email"
-          placeholder="Your email"
+          placeholder={content.contact.form.emailPlaceholder}
           autoComplete="email"
           required
         />
@@ -79,49 +90,54 @@ export default function ContactForm() {
 
       <div className="formRow">
         <div className="formField">
-          <label htmlFor="projectType">Project type</label>
+          <label htmlFor="projectType">
+            {content.contact.form.projectType}
+          </label>
 
           <select
             id="projectType"
             name="projectType"
             defaultValue=""
+            required
           >
             <option value="" disabled>
-              Select project type
+              {content.contact.form.projectTypePlaceholder}
             </option>
 
             <option value="photography">
-              Photography
+              {content.contact.form.options.photography}
             </option>
 
             <option value="editorial">
-              Editorial
+              {content.contact.form.options.editorial}
             </option>
 
             <option value="campaign">
-              Campaign
+              {content.contact.form.options.campaign}
             </option>
 
             <option value="portrait">
-              Portrait
+              {content.contact.form.options.portrait}
             </option>
 
             <option value="product">
-              Product
+              {content.contact.form.options.product}
             </option>
 
             <option value="motorsport">
-              Motorsport
+              {content.contact.form.options.motorsport}
             </option>
 
             <option value="other">
-              Other
+              {content.contact.form.options.other}
             </option>
           </select>
         </div>
 
         <div className="formField">
-          <label htmlFor="date">Project date</label>
+          <label htmlFor="date">
+            {content.contact.form.projectDate}
+          </label>
 
           <input
             id="date"
@@ -132,13 +148,15 @@ export default function ContactForm() {
       </div>
 
       <div className="formField">
-        <label htmlFor="message">Message</label>
+        <label htmlFor="message">
+          {content.contact.form.message}
+        </label>
 
         <textarea
           id="message"
           name="message"
           rows={4}
-          placeholder="A few words about what you have in mind..."
+          placeholder={content.contact.form.messagePlaceholder}
           required
         />
       </div>
@@ -174,12 +192,12 @@ export default function ContactForm() {
       >
         <span>
           {status === "sending"
-            ? "SENDING..."
+            ? content.contact.form.status.sending
             : status === "success"
-            ? "BRIEF SENT"
+            ? content.contact.form.status.success
             : status === "error"
-            ? "TRY AGAIN"
-            : "SEND BRIEF"}
+            ? content.contact.form.status.error
+            : content.contact.form.status.idle}
         </span>
 
         <span className="submitArrow">

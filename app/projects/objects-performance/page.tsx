@@ -2,10 +2,13 @@ import Image from "next/image";
 import NextProject from "@/app/components/NextProject";
 import type { Metadata } from "next";
 
+import es from "@/app/content/es";
 import Header from "@/app/components/Header";
 import ProjectInfo from "@/app/components/ProjectInfo";
 import SharedImage from "@/app/components/animations/SharedImage";
 import ProjectReveal from "@/app/components/animations/ProjectReveal";
+
+type ObjectsPerformanceContent = typeof es;
 
 export const metadata: Metadata = {
   title: "Objects & Performance — ONERABBIT",
@@ -41,26 +44,30 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ObjectsPerformance() {
+export default function ObjectsPerformance({
+  content = es,
+}: {
+  content?: ObjectsPerformanceContent;
+}) {
   return (
     <main className="projectPage">
-      <Header />
+      <Header content={content} />
 
       <ProjectReveal delay={0.35}>
         <section className="projectIntro objectsIntro">
-          <span>03</span>
+          <span>{content.work.objects.number.split(" / ")[0]}</span>
 
           <div>
-            <p>PRODUCT / STILL LIFE</p>
+            <p>{content.work.objects.project.introCategory}</p>
 
             <h1>
-              Objects &
+              {content.work.objects.title[0]}
               <br />
-              Performance
+              {content.work.objects.title[1]}
             </h1>
           </div>
 
-          <span>2026</span>
+          <span>{content.work.objects.year}</span>
         </section>
       </ProjectReveal>
 
@@ -68,25 +75,25 @@ export default function ObjectsPerformance() {
         <SharedImage
           layoutId="product-image"
           src="/images/2_Adizero.jpg"
-          alt="Objects & Performance"
+          alt={content.work.objects.project.imageAlt}
         />
       </section>
 
       <ProjectReveal delay={0.45}>
         <section className="projectStatement objectsStatement">
           <p>
-            Objects shaped by material,
+            {content.work.objects.project.statement[0]}
             <br />
-            balance and visual tension.
+            {content.work.objects.project.statement[1]}
           </p>
         </section>
       </ProjectReveal>
 
       <ProjectInfo
-        client="Independent"
-        category="Product / Still Life"
-        year="2026"
-        location="Madrid / León"
+        client={content.work.objects.project.client}
+        category={content.work.objects.project.infoCategory}
+        year={content.work.objects.year}
+        location={content.work.objects.project.location}
       />
 
       <ProjectReveal delay={0.25}>
@@ -189,14 +196,14 @@ export default function ObjectsPerformance() {
         </section>
       </ProjectReveal>
 
- <NextProject
-  number="04"
-  title={"Selected\nFaces"}
-  category="FASHION / PORTRAIT"
-  href="/projects/selected-faces"
-  image="/images/ENCINA_11_04_2200401_1.jpg"
-  layoutId="faces-image"
-/>
+      <NextProject
+        number={content.work.objects.project.nextNumber}
+        title={content.work.objects.project.nextTitle}
+        category={content.work.objects.project.nextCategory}
+        href={content.work.objects.project.nextHref}
+        image="/images/ENCINA_11_04_2200401_1.jpg"
+        layoutId="faces-image"
+      />
     </main>
   );
 }

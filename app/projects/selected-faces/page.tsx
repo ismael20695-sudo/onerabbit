@@ -1,13 +1,14 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 
+import es from "@/app/content/es";
 import Header from "@/app/components/Header";
 import ProjectInfo from "@/app/components/ProjectInfo";
 import SharedImage from "@/app/components/animations/SharedImage";
 import ProjectReveal from "@/app/components/animations/ProjectReveal";
 import NextProject from "@/app/components/NextProject";
 
-
+type SelectedFacesContent = typeof es;
 
 export const metadata: Metadata = {
   title: "Selected Faces — ONERABBIT",
@@ -43,26 +44,30 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SelectedFaces() {
+export default function SelectedFaces({
+  content = es,
+}: {
+  content?: SelectedFacesContent;
+}) {
   return (
     <main className="projectPage">
-      <Header />
+      <Header content={content} />
 
       <ProjectReveal delay={0.35}>
         <section className="projectIntro facesIntro">
-          <span>04</span>
+          <span>{content.work.faces.number.split(" / ")[0]}</span>
 
           <div>
-            <p>FASHION / PORTRAIT</p>
+            <p>{content.work.faces.project.introCategory}</p>
 
             <h1>
-              Selected
+              {content.work.faces.title[0]}
               <br />
-              Faces
+              {content.work.faces.title[1]}
             </h1>
           </div>
 
-          <span>2026</span>
+          <span>{content.work.faces.year}</span>
         </section>
       </ProjectReveal>
 
@@ -70,25 +75,25 @@ export default function SelectedFaces() {
         <SharedImage
           layoutId="faces-image"
           src="/images/ENCINA_11_04_2200401_1.jpg"
-          alt="Selected Faces"
+          alt={content.work.faces.project.imageAlt}
         />
       </section>
 
       <ProjectReveal delay={0.45}>
         <section className="projectStatement facesStatement">
           <p>
-            Faces as identity,
+            {content.work.faces.project.statement[0]}
             <br />
-            gesture and presence.
+            {content.work.faces.project.statement[1]}
           </p>
         </section>
       </ProjectReveal>
 
       <ProjectInfo
-        client="Independent"
-        category="Fashion / Portrait"
-        year="2026"
-        location="Madrid / León"
+        client={content.work.faces.project.client}
+        category={content.work.faces.project.infoCategory}
+        year={content.work.faces.year}
+        location={content.work.faces.project.location}
       />
 
       <ProjectReveal delay={0.25}>
@@ -96,7 +101,7 @@ export default function SelectedFaces() {
           <div className="facesOpeningLarge">
             <Image
               src="/images/_MG_9154_1.jpg"
-              alt="Selected Faces"
+              alt={content.work.faces.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 58vw"
@@ -106,7 +111,7 @@ export default function SelectedFaces() {
           <div className="facesOpeningSmall">
             <Image
               src="/images/564_1000000078695_564.jpg"
-              alt="Selected Faces"
+              alt={content.work.faces.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 32vw"
@@ -120,7 +125,7 @@ export default function SelectedFaces() {
           <div className="facesFeatureFrame">
             <Image
               src="/images/ANGIE_7_07_2201133_1.jpg"
-              alt="Selected Faces"
+              alt={content.work.faces.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 72vw"
@@ -134,7 +139,7 @@ export default function SelectedFaces() {
           <div className="facesEditorialLeft">
             <Image
               src="/images/672_8719797188465_672.jpg"
-              alt="Selected Faces"
+              alt={content.work.faces.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 44vw"
@@ -144,7 +149,7 @@ export default function SelectedFaces() {
           <div className="facesEditorialRight">
             <Image
               src="/images/BEA_14_10_2102050_1.jpg"
-              alt="Selected Faces"
+              alt={content.work.faces.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 44vw"
@@ -158,7 +163,7 @@ export default function SelectedFaces() {
           <div className="facesWideMomentFrame">
             <Image
               src="/images/_MG_1147.jpg"
-              alt="Selected Faces"
+              alt={content.work.faces.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 78vw"
@@ -172,7 +177,7 @@ export default function SelectedFaces() {
           <div className="facesOffsetLarge">
             <Image
               src="/images/CLARA_2_07_2200964_1.jpg"
-              alt="Selected Faces"
+              alt={content.work.faces.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 56vw"
@@ -182,7 +187,7 @@ export default function SelectedFaces() {
           <div className="facesOffsetSmall">
             <Image
               src="/images/_MG_8878.jpg"
-              alt="Selected Faces"
+              alt={content.work.faces.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 30vw"
@@ -195,7 +200,7 @@ export default function SelectedFaces() {
         <section className="facesFull">
           <Image
             src="/images/ENCINA_11_04_2200542_1.jpg"
-            alt="Selected Faces"
+            alt={content.work.faces.project.imageAlt}
             fill
             className="projectPhoto"
             sizes="100vw"
@@ -208,7 +213,7 @@ export default function SelectedFaces() {
           <div className="facesClosingLeft">
             <Image
               src="/images/SARA_FUTURE_24_11_2102316_1.jpg"
-              alt="Selected Faces"
+              alt={content.work.faces.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 43vw"
@@ -218,7 +223,7 @@ export default function SelectedFaces() {
           <div className="facesClosingRight">
             <Image
               src="/images/ANGIE_7_07_2201201.jpg"
-              alt="Selected Faces"
+              alt={content.work.faces.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 43vw"
@@ -227,14 +232,14 @@ export default function SelectedFaces() {
         </section>
       </ProjectReveal>
 
-<NextProject
-  number="05"
-  title="Motorsport"
-  category="MOTORSPORT / RACING"
-  href="/projects/motorsport"
-  image="/images/MOTORSPORT-HERO.jpg"
-  layoutId="motorsport-image"
-/>
+      <NextProject
+        number={content.work.faces.project.nextNumber}
+        title={content.work.faces.project.nextTitle}
+        category={content.work.faces.project.nextCategory}
+        href={content.work.faces.project.nextHref}
+        image="/images/MOTORSPORT-HERO.jpg"
+        layoutId="motorsport-image"
+      />
     </main>
   );
 }

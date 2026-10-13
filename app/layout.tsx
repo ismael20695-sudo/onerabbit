@@ -7,7 +7,6 @@ import RouteTransition from "./components/animations/RouteTransition";
 import Footer from "./components/Footer";
 import { Instrument_Serif, Inter } from "next/font/google";
 
-
 const instrument = Instrument_Serif({
   weight: "400",
   subsets: ["latin"],
@@ -19,39 +18,48 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-
-
 export const metadata: Metadata = {
-metadataBase: new URL("https://www.onerabbit.studio"),
+  metadataBase: new URL("https://www.onerabbit.studio"),
+
   title: {
-    default: "ONERABBIT — Photography Studio",
+    default: "ONERABBIT — Fotografía",
     template: "%s — ONERABBIT",
   },
 
   description:
-    "Independent photography practice focused on portrait, fashion, product and visual culture.",
+    "Práctica independiente de fotografía centrada en retrato, moda, producto y cultura visual.",
+
+  alternates: {
+    canonical: "/",
+    languages: {
+      "es-ES": "/",
+      "en-US": "/en",
+    },
+  },
 
   openGraph: {
-    title: "ONERABBIT — Photography Studio",
+    title: "ONERABBIT — Fotografía",
     description:
-      "Independent photography practice focused on portrait, fashion, product and visual culture.",
-
+      "Práctica independiente de fotografía centrada en retrato, moda, producto y cultura visual.",
+    url: "/",
+    siteName: "ONERABBIT",
+    locale: "es_ES",
+    alternateLocale: ["en_US"],
     images: [
-      "/opengraph-image.jpg",
+      {
+        url: "/opengraph-image.jpg",
+        alt: "ONERABBIT — Fotografía",
+      },
     ],
-
     type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "ONERABBIT — Photography Studio",
+    title: "ONERABBIT — Fotografía",
     description:
-      "Independent photography practice focused on portrait, fashion, product and visual culture.",
-
-    images: [
-      "/opengraph-image.jpg",
-    ],
+      "Práctica independiente de fotografía centrada en retrato, moda, producto y cultura visual.",
+    images: ["/opengraph-image.jpg"],
   },
 };
 
@@ -61,36 +69,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="es" data-scroll-behavior="smooth">
       <body className={`${instrument.variable} ${inter.variable}`}>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PGHHQ0WE6N"
+          strategy="afterInteractive"
+        />
 
-  <Script
-    src="https://www.googletagmanager.com/gtag/js?id=G-PGHHQ0WE6N"
-    strategy="afterInteractive"
-  />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-  <Script id="google-analytics" strategy="afterInteractive">
-    {`
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){window.dataLayer.push(arguments);}
-      gtag('js', new Date());
+            gtag('config', 'G-PGHHQ0WE6N');
+          `}
+        </Script>
 
-      gtag('config', 'G-PGHHQ0WE6N');
-    `}
-  </Script>
-
-  <Loader />
+        <Loader />
 
         <SmoothScroll>
-
           <RouteTransition>
             {children}
           </RouteTransition>
 
           <Footer />
-
         </SmoothScroll>
-
       </body>
     </html>
   );

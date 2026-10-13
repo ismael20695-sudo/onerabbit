@@ -1,6 +1,8 @@
 import Image from "next/image";
 import NextProject from "@/app/components/NextProject";
 import type { Metadata } from "next";
+import es from "@/app/content/es";
+import en from "@/app/content/en";
 
 import Header from "@/app/components/Header";
 import ProjectInfo from "@/app/components/ProjectInfo";
@@ -41,26 +43,33 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BodyLanguage() {
+type BodyLanguageContent = typeof es;
+
+export default function BodyLanguage({
+  content = es,
+}: {
+  content?: BodyLanguageContent;
+}) {
+
   return (
     <main className="projectPage">
-      <Header />
+      <Header content={content} />
 
       <ProjectReveal delay={0.35}>
         <section className="projectIntro bodyIntro">
-          <span>02</span>
+          <span>{content.work.body.number.split(" / ")[0]}</span>
 
           <div>
-            <p>MOVEMENT / PORTRAIT</p>
+            <p>{content.work.body.project.introCategory}</p>
 
             <h1>
-              Body
+              {content.work.body.title[0]}
               <br />
-              Language
+              {content.work.body.title[1]}
             </h1>
           </div>
 
-          <span>2026</span>
+          <span>{content.work.body.year}</span>
         </section>
       </ProjectReveal>
 
@@ -68,25 +77,25 @@ export default function BodyLanguage() {
         <SharedImage
           layoutId="body-image"
           src="/images/HECTOR_10_9_2300501.jpg"
-          alt="Body Language photography by ONERABBIT"
+          alt={content.work.body.project.imageAlt}
         />
       </section>
 
       <ProjectReveal delay={0.45}>
         <section className="projectStatement bodyStatement">
           <p>
-            Movement as structure.
+            {content.work.body.project.statement[0]}
             <br />
-            Gesture as form.
+            {content.work.body.project.statement[1]}
           </p>
         </section>
       </ProjectReveal>
 
       <ProjectInfo
-        client="Independent"
-        category="Movement / Portrait"
-        year="2026"
-        location="Madrid / León"
+        client={content.work.body.project.client}
+        category={content.work.body.project.infoCategory}
+        year={content.work.body.year}
+        location={content.work.body.project.location}
       />
 
       <ProjectReveal delay={0.25}>
@@ -94,7 +103,7 @@ export default function BodyLanguage() {
           <div className="bodyOpeningLarge">
             <Image
               src="/images/SOFI_12_09_2300142.jpg"
-              alt="Body Language"
+              alt={content.work.body.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 58vw"
@@ -104,7 +113,7 @@ export default function BodyLanguage() {
           <div className="bodyOpeningSmall">
             <Image
               src="/images/HECTOR_10_9_2300059.jpg"
-              alt="Body Language"
+              alt={content.work.body.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 34vw"
@@ -118,7 +127,7 @@ export default function BodyLanguage() {
           <div className="bodySculptureFrame">
             <Image
               src="/images/SOFI_12_09_2300220.jpg"
-              alt="Body Language"
+              alt={content.work.body.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 72vw"
@@ -132,7 +141,7 @@ export default function BodyLanguage() {
           <div className="bodyVerticalFrame bodyVerticalLeft">
             <Image
               src="/images/VICKY_14_05_2301945.jpg"
-              alt="Body Language"
+              alt={content.work.body.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 42vw"
@@ -142,7 +151,7 @@ export default function BodyLanguage() {
           <div className="bodyVerticalFrame bodyVerticalRight">
             <Image
               src="/images/HECTOR_10_9_2300463.jpg"
-              alt="Body Language"
+              alt={content.work.body.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 42vw"
@@ -155,7 +164,7 @@ export default function BodyLanguage() {
         <section className="bodyFullMoment">
           <Image
             src="/images/VICKY_14_05_2302008.jpg"
-            alt="Body Language"
+            alt={content.work.body.project.imageAlt}
             fill
             className="projectPhoto"
             sizes="100vw"
@@ -168,7 +177,7 @@ export default function BodyLanguage() {
           <div className="bodyWideBreathFrame">
             <Image
               src="/images/SOFI_12_09_2300859.jpg"
-              alt="Body Language"
+              alt={content.work.body.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 78vw"
@@ -182,7 +191,7 @@ export default function BodyLanguage() {
           <div className="bodyInverseLarge">
             <Image
               src="/images/VICKY_14_05_2302021.jpg"
-              alt="Body Language"
+              alt={content.work.body.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 60vw"
@@ -192,7 +201,7 @@ export default function BodyLanguage() {
           <div className="bodyInverseSmall">
             <Image
               src="/images/HECTOR_10_9_2300474.jpg"
-              alt="Body Language"
+              alt={content.work.body.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 30vw"
@@ -206,7 +215,7 @@ export default function BodyLanguage() {
           <div className="bodyMotionFrame">
             <Image
               src="/images/VICKY_14_05_2302055.jpg"
-              alt="Body Language"
+              alt={content.work.body.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 46vw"
@@ -216,7 +225,7 @@ export default function BodyLanguage() {
           <div className="bodyMotionFrame bodyMotionOffset">
             <Image
               src="/images/VICKY_14_05_2302090.jpg"
-              alt="Body Language"
+              alt={content.work.body.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 46vw"
@@ -230,7 +239,7 @@ export default function BodyLanguage() {
           <div className="bodyClosingFrame">
             <Image
               src="/images/VICKY_14_05_2302132.jpg"
-              alt="Body Language"
+              alt={content.work.body.project.imageAlt}
               fill
               className="projectPhoto"
               sizes="(max-width: 800px) 100vw, 58vw"
@@ -239,14 +248,14 @@ export default function BodyLanguage() {
         </section>
       </ProjectReveal>
 
-<NextProject
-  number="03"
-  title={"Objects\n& Performance"}
-  category="PRODUCT / STILL LIFE"
-  href="/projects/objects-performance"
-  image="/images/2_Adizero.jpg"
-  layoutId="product-image"
-/>
+      <NextProject
+        number={content.work.body.project.nextNumber}
+        title={content.work.body.project.nextTitle}
+        category={content.work.body.project.nextCategory}
+        href={content.work.body.project.nextHref}
+        image="/images/2_Adizero.jpg"
+        layoutId="product-image"
+      />
     </main>
   );
 }
