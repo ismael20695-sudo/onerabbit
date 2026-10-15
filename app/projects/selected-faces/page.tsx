@@ -1,56 +1,79 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import NextProject from "@/app/components/NextProject";
+import { ProjectStructuredData } from "@/app/components/StructuredData";
 
 import es from "@/app/content/es";
 import Header from "@/app/components/Header";
 import ProjectInfo from "@/app/components/ProjectInfo";
 import SharedImage from "@/app/components/animations/SharedImage";
 import ProjectReveal from "@/app/components/animations/ProjectReveal";
-import NextProject from "@/app/components/NextProject";
 
 type SelectedFacesContent = typeof es;
 
 export const metadata: Metadata = {
-  title: "Selected Faces — ONERABBIT",
+  title: "Selected Faces",
+
   description:
     "Selected Faces explores identity, gesture and presence through fashion and portrait photography by ONERABBIT.",
+
   alternates: {
-    canonical: "https://www.onerabbit.studio/projects/selected-faces",
+    canonical: "/projects/selected-faces",
+    languages: {
+      "es-ES": "/projects/selected-faces",
+      "en-US": "/en/projects/selected-faces",
+    },
   },
+
   openGraph: {
     title: "Selected Faces — ONERABBIT",
     description:
       "Selected Faces explores identity, gesture and presence through fashion and portrait photography by ONERABBIT.",
-    url: "https://www.onerabbit.studio/projects/selected-faces",
+    url: "/projects/selected-faces",
     siteName: "ONERABBIT",
     type: "website",
+    locale: "es_ES",
+    alternateLocale: ["en_US"],
     images: [
       {
-        url: "https://www.onerabbit.studio/images/ENCINA_11_04_2200401_1.jpg",
+        url: "/images/ENCINA_11_04_2200401_1.jpg",
         width: 1200,
         height: 1500,
         alt: "Selected Faces fashion portrait photography by ONERABBIT",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Selected Faces — ONERABBIT",
     description:
       "Selected Faces explores identity, gesture and presence through fashion and portrait photography by ONERABBIT.",
-    images: [
-      "https://www.onerabbit.studio/images/ENCINA_11_04_2200401_1.jpg",
-    ],
+    images: ["/images/ENCINA_11_04_2200401_1.jpg"],
   },
 };
 
 export default function SelectedFaces({
   content = es,
+  isEnglish = false,
 }: {
   content?: SelectedFacesContent;
+  isEnglish?: boolean;
 }) {
   return (
     <main className="projectPage">
+      <ProjectStructuredData
+        name="Selected Faces"
+        description="Selected Faces explores identity, gesture and presence through fashion and portrait photography by ONERABBIT."
+        url={
+          isEnglish
+            ? "https://www.onerabbit.studio/en/projects/selected-faces"
+            : "https://www.onerabbit.studio/projects/selected-faces"
+        }
+        image="https://www.onerabbit.studio/images/ENCINA_11_04_2200401_1.jpg"
+        inLanguage={isEnglish ? "en" : "es"}
+      />
+
       <Header content={content} />
 
       <ProjectReveal delay={0.35}>
@@ -236,7 +259,11 @@ export default function SelectedFaces({
         number={content.work.faces.project.nextNumber}
         title={content.work.faces.project.nextTitle}
         category={content.work.faces.project.nextCategory}
-        href={content.work.faces.project.nextHref}
+        href={
+          isEnglish
+            ? "/en/projects/motorsport"
+            : "/projects/motorsport"
+        }
         image="/images/MOTORSPORT-HERO.jpg"
         layoutId="motorsport-image"
       />

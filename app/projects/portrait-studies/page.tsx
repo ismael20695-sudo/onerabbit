@@ -1,6 +1,7 @@
 import Image from "next/image";
 import NextProject from "@/app/components/NextProject";
 import type { Metadata } from "next";
+import { ProjectStructuredData } from "@/app/components/StructuredData";
 
 import es from "@/app/content/es";
 import Header from "@/app/components/Header";
@@ -11,46 +12,68 @@ import ProjectReveal from "@/app/components/animations/ProjectReveal";
 type PortraitStudiesContent = typeof es;
 
 export const metadata: Metadata = {
-  title: "Portrait Studies — ONERABBIT",
+  title: "Portrait Studies",
+
   description:
     "Portrait Studies explores identity, gesture, light and visual presence through editorial portrait photography by ONERABBIT.",
+
   alternates: {
-    canonical: "https://www.onerabbit.studio/projects/portrait-studies",
+    canonical: "/projects/portrait-studies",
+    languages: {
+      "es-ES": "/projects/portrait-studies",
+      "en-US": "/en/projects/portrait-studies",
+    },
   },
+
   openGraph: {
     title: "Portrait Studies — ONERABBIT",
     description:
       "Portrait Studies explores identity, gesture, light and visual presence through editorial portrait photography by ONERABBIT.",
-    url: "https://www.onerabbit.studio/projects/portrait-studies",
+    url: "/projects/portrait-studies",
     siteName: "ONERABBIT",
     type: "website",
+    locale: "es_ES",
+    alternateLocale: ["en_US"],
     images: [
       {
-        url: "https://www.onerabbit.studio/images/ALBA_27_10_2301356.jpg",
+        url: "/images/ALBA_27_10_2301356.jpg",
         width: 1200,
         height: 1500,
         alt: "Portrait Studies photography by ONERABBIT",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Portrait Studies — ONERABBIT",
     description:
       "Portrait Studies explores identity, gesture, light and visual presence through editorial portrait photography by ONERABBIT.",
-    images: [
-      "https://www.onerabbit.studio/images/ALBA_27_10_2301356.jpg",
-    ],
+    images: ["/images/ALBA_27_10_2301356.jpg"],
   },
 };
 
 export default function PortraitStudies({
   content = es,
+  isEnglish = false,
 }: {
   content?: PortraitStudiesContent;
+  isEnglish?: boolean;
 }) {
   return (
     <main className="projectPage">
+      <ProjectStructuredData
+        name="Portrait Studies"
+        description="Portrait Studies explores identity, gesture, light and visual presence through editorial portrait photography by ONERABBIT."
+        url={
+          isEnglish
+            ? "https://www.onerabbit.studio/en/projects/portrait-studies"
+            : "https://www.onerabbit.studio/projects/portrait-studies"
+        }
+        image="https://www.onerabbit.studio/images/ALBA_27_10_2301356.jpg"
+        inLanguage={isEnglish ? "en" : "es"}
+      />
+
       <Header content={content} />
 
       <ProjectReveal delay={0.35}>
@@ -205,7 +228,7 @@ export default function PortraitStudies({
         number={content.work.portrait.project.nextNumber}
         title={content.work.portrait.project.nextTitle}
         category={content.work.portrait.project.nextCategory}
-        href={content.work.portrait.project.nextHref}
+        href={isEnglish ? "/en/projects/body-language" : "/projects/body-language"}
         image="/images/HECTOR_10_9_2300501.jpg"
         layoutId="body-image"
       />

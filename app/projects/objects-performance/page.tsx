@@ -1,6 +1,7 @@
 import Image from "next/image";
 import NextProject from "@/app/components/NextProject";
 import type { Metadata } from "next";
+import { ProjectStructuredData } from "@/app/components/StructuredData";
 
 import es from "@/app/content/es";
 import Header from "@/app/components/Header";
@@ -11,46 +12,68 @@ import ProjectReveal from "@/app/components/animations/ProjectReveal";
 type ObjectsPerformanceContent = typeof es;
 
 export const metadata: Metadata = {
-  title: "Objects & Performance — ONERABBIT",
+  title: "Objects & Performance",
+
   description:
     "Objects & Performance explores material, form and performance through product and still life photography by ONERABBIT.",
+
   alternates: {
-    canonical: "https://www.onerabbit.studio/projects/objects-performance",
+    canonical: "/projects/objects-performance",
+    languages: {
+      "es-ES": "/projects/objects-performance",
+      "en-US": "/en/projects/objects-performance",
+    },
   },
+
   openGraph: {
     title: "Objects & Performance — ONERABBIT",
     description:
       "Objects & Performance explores material, form and performance through product and still life photography by ONERABBIT.",
-    url: "https://www.onerabbit.studio/projects/objects-performance",
+    url: "/projects/objects-performance",
     siteName: "ONERABBIT",
     type: "website",
+    locale: "es_ES",
+    alternateLocale: ["en_US"],
     images: [
       {
-        url: "https://www.onerabbit.studio/images/2_Adizero.jpg",
+        url: "/images/2_Adizero.jpg",
         width: 1200,
         height: 1200,
         alt: "Objects & Performance photography by ONERABBIT",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Objects & Performance — ONERABBIT",
     description:
       "Objects & Performance explores material, form and performance through product and still life photography by ONERABBIT.",
-    images: [
-      "https://www.onerabbit.studio/images/2_Adizero.jpg",
-    ],
+    images: ["/images/2_Adizero.jpg"],
   },
 };
 
 export default function ObjectsPerformance({
   content = es,
+  isEnglish = false,
 }: {
   content?: ObjectsPerformanceContent;
+  isEnglish?: boolean;
 }) {
   return (
     <main className="projectPage">
+      <ProjectStructuredData
+        name="Objects & Performance"
+        description="Objects & Performance explores material, form and performance through product and still life photography by ONERABBIT."
+        url={
+          isEnglish
+            ? "https://www.onerabbit.studio/en/projects/objects-performance"
+            : "https://www.onerabbit.studio/projects/objects-performance"
+        }
+        image="https://www.onerabbit.studio/images/2_Adizero.jpg"
+        inLanguage={isEnglish ? "en" : "es"}
+      />
+
       <Header content={content} />
 
       <ProjectReveal delay={0.35}>
@@ -200,7 +223,11 @@ export default function ObjectsPerformance({
         number={content.work.objects.project.nextNumber}
         title={content.work.objects.project.nextTitle}
         category={content.work.objects.project.nextCategory}
-        href={content.work.objects.project.nextHref}
+        href={
+          isEnglish
+            ? "/en/projects/selected-faces"
+            : "/projects/selected-faces"
+        }
         image="/images/ENCINA_11_04_2200401_1.jpg"
         layoutId="faces-image"
       />

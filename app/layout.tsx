@@ -6,6 +6,8 @@ import Loader from "./components/animations/Loader";
 import RouteTransition from "./components/animations/RouteTransition";
 import Footer from "./components/Footer";
 import { Instrument_Serif, Inter } from "next/font/google";
+import { SiteStructuredData } from "./components/StructuredData";
+
 
 const instrument = Instrument_Serif({
   weight: "400",
@@ -85,6 +87,8 @@ export default function RootLayout({
             gtag('config', 'G-PGHHQ0WE6N');
           `}
         </Script>
+
+<SiteStructuredData />
 
         <Loader />
 

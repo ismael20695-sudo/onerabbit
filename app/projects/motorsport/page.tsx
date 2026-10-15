@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import NextProject from "@/app/components/NextProject";
+import { ProjectStructuredData } from "@/app/components/StructuredData";
 
 import es from "@/app/content/es";
 import Header from "@/app/components/Header";
@@ -11,46 +12,68 @@ import ProjectReveal from "@/app/components/animations/ProjectReveal";
 type MotorsportContent = typeof es;
 
 export const metadata: Metadata = {
-  title: "Motorsport Photography — ONERABBIT",
+  title: "Motorsport Photography",
+
   description:
     "Motorsport photography exploring speed, racing, machinery and human presence through action and documentary imagery by ONERABBIT.",
+
   alternates: {
-    canonical: "https://www.onerabbit.studio/projects/motorsport",
+    canonical: "/projects/motorsport",
+    languages: {
+      "es-ES": "/projects/motorsport",
+      "en-US": "/en/projects/motorsport",
+    },
   },
+
   openGraph: {
     title: "Motorsport Photography — ONERABBIT",
     description:
       "Motorsport photography exploring speed, racing, machinery and human presence through action and documentary imagery by ONERABBIT.",
-    url: "https://www.onerabbit.studio/projects/motorsport",
+    url: "/projects/motorsport",
     siteName: "ONERABBIT",
     type: "website",
+    locale: "es_ES",
+    alternateLocale: ["en_US"],
     images: [
       {
-        url: "https://www.onerabbit.studio/images/MOTORSPORT-HERO.jpg",
+        url: "/images/MOTORSPORT-HERO.jpg",
         width: 1600,
         height: 900,
         alt: "Motorsport racing photography by ONERABBIT",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Motorsport Photography — ONERABBIT",
     description:
       "Motorsport photography exploring speed, racing, machinery and human presence through action and documentary imagery by ONERABBIT.",
-    images: [
-      "https://www.onerabbit.studio/images/MOTORSPORT-HERO.jpg",
-    ],
+    images: ["/images/MOTORSPORT-HERO.jpg"],
   },
 };
 
 export default function Motorsport({
   content = es,
+  isEnglish = false,
 }: {
   content?: MotorsportContent;
+  isEnglish?: boolean;
 }) {
   return (
     <main className="projectPage motorsportPage">
+      <ProjectStructuredData
+        name="Motorsport Photography"
+        description="Motorsport photography exploring speed, racing, machinery and human presence through action and documentary imagery by ONERABBIT."
+        url={
+          isEnglish
+            ? "https://www.onerabbit.studio/en/projects/motorsport"
+            : "https://www.onerabbit.studio/projects/motorsport"
+        }
+        image="https://www.onerabbit.studio/images/MOTORSPORT-HERO.jpg"
+        inLanguage={isEnglish ? "en" : "es"}
+      />
+
       <Header content={content} />
 
       <ProjectReveal delay={0.35}>
@@ -182,7 +205,11 @@ export default function Motorsport({
         number={content.work.motorsport.project.nextNumber}
         title={content.work.motorsport.project.nextTitle}
         category={content.work.motorsport.project.nextCategory}
-        href={content.work.motorsport.project.nextHref}
+        href={
+          isEnglish
+            ? "/en/projects/portrait-studies"
+            : "/projects/portrait-studies"
+        }
         image="/images/ALBA_27_10_2301356.jpg"
         layoutId="portrait-image"
       />

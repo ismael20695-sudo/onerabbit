@@ -1,58 +1,79 @@
 import Image from "next/image";
 import NextProject from "@/app/components/NextProject";
 import type { Metadata } from "next";
-import es from "@/app/content/es";
-import en from "@/app/content/en";
+import { ProjectStructuredData } from "@/app/components/StructuredData";
 
+import es from "@/app/content/es";
 import Header from "@/app/components/Header";
 import ProjectInfo from "@/app/components/ProjectInfo";
 import SharedImage from "@/app/components/animations/SharedImage";
 import ProjectReveal from "@/app/components/animations/ProjectReveal";
 
+type BodyLanguageContent = typeof es;
+
 export const metadata: Metadata = {
-  title: "Body Language — ONERABBIT",
+  title: "Body Language",
+
   description:
     "Body Language explores movement, gesture and human expression through independent photography by ONERABBIT.",
+
   alternates: {
-    canonical: "https://www.onerabbit.studio/projects/body-language",
+    canonical: "/projects/body-language",
+    languages: {
+      "es-ES": "/projects/body-language",
+      "en-US": "/en/projects/body-language",
+    },
   },
+
   openGraph: {
     title: "Body Language — ONERABBIT",
     description:
       "Body Language explores movement, gesture and human expression through independent photography by ONERABBIT.",
-    url: "https://www.onerabbit.studio/projects/body-language",
+    url: "/projects/body-language",
     siteName: "ONERABBIT",
     type: "website",
+    locale: "es_ES",
+    alternateLocale: ["en_US"],
     images: [
       {
-        url: "https://www.onerabbit.studio/images/HECTOR_10_9_2300501.jpg",
+        url: "/images/HECTOR_10_9_2300501.jpg",
         width: 1200,
         height: 1500,
         alt: "Body Language photography by ONERABBIT",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Body Language — ONERABBIT",
     description:
       "Body Language explores movement, gesture and human expression through independent photography by ONERABBIT.",
-    images: [
-      "https://www.onerabbit.studio/images/HECTOR_10_9_2300501.jpg",
-    ],
+    images: ["/images/HECTOR_10_9_2300501.jpg"],
   },
 };
 
-type BodyLanguageContent = typeof es;
-
 export default function BodyLanguage({
   content = es,
+  isEnglish = false,
 }: {
   content?: BodyLanguageContent;
+  isEnglish?: boolean;
 }) {
-
   return (
     <main className="projectPage">
+      <ProjectStructuredData
+        name="Body Language"
+        description="Body Language explores movement, gesture and human expression through independent photography by ONERABBIT."
+        url={
+          isEnglish
+            ? "https://www.onerabbit.studio/en/projects/body-language"
+            : "https://www.onerabbit.studio/projects/body-language"
+        }
+        image="https://www.onerabbit.studio/images/HECTOR_10_9_2300501.jpg"
+        inLanguage={isEnglish ? "en" : "es"}
+      />
+
       <Header content={content} />
 
       <ProjectReveal delay={0.35}>
@@ -252,7 +273,11 @@ export default function BodyLanguage({
         number={content.work.body.project.nextNumber}
         title={content.work.body.project.nextTitle}
         category={content.work.body.project.nextCategory}
-        href={content.work.body.project.nextHref}
+        href={
+          isEnglish
+            ? "/en/projects/objects-performance"
+            : "/projects/objects-performance"
+        }
         image="/images/2_Adizero.jpg"
         layoutId="product-image"
       />
